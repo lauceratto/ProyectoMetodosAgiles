@@ -4,26 +4,32 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JTextField;
 
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import tp.App.AppVendedor;
+import tp.dominio.Vendedor;
+import tp.gestores.GestorVendedor;
+
 import javax.swing.JButton;
 
 public class PanelAltaVendedor extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
+	private JTextField textNombre;
+	private JTextField textDNI;
+	private JTextField textCorreo;
+	private JTextField textApellido;
+	private JTextField textTelefono;
+	private JTextField textCalle;
+	private JTextField textNro;
+	private JTextField textDpto;
+	private JTextField textPiso;
+	private JTextField textContra;
+	private JTextField textContraConf;
+	private GestorVendedor gestorVendedor = new GestorVendedor();
 
 	
 	public PanelAltaVendedor(Login login) {
@@ -55,35 +61,35 @@ public class PanelAltaVendedor extends JPanel {
 		lblNewLabe5.setBounds(41, 124, 91, 23);
 		panel.add(lblNewLabe5);
 		
-		textField = new JTextField();
-		textField.setBounds(186, 55, 201, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		textNombre = new JTextField();
+		textNombre.setBounds(186, 55, 201, 20);
+		panel.add(textNombre);
+		textNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(186, 126, 201, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		textDNI = new JTextField();
+		textDNI.setBounds(186, 126, 201, 20);
+		panel.add(textDNI);
+		textDNI.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(186, 192, 520, 20);
-		panel.add(textField_2);
-		textField_2.setColumns(10);
+		textCorreo = new JTextField();
+		textCorreo.setBounds(186, 192, 520, 20);
+		panel.add(textCorreo);
+		textCorreo.setColumns(10);
 		
 		JLabel lblNewLabel1 = new JLabel("Apellido (*)");
 		lblNewLabel1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel1.setBounds(406, 53, 91, 23);
 		panel.add(lblNewLabel1);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(507, 55, 201, 20);
-		panel.add(textField_3);
-		textField_3.setColumns(10);
+		textApellido = new JTextField();
+		textApellido.setBounds(507, 55, 201, 20);
+		panel.add(textApellido);
+		textApellido.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(507, 126, 201, 20);
-		panel.add(textField_4);
-		textField_4.setColumns(10);
+		textTelefono = new JTextField();
+		textTelefono.setBounds(507, 126, 201, 20);
+		panel.add(textTelefono);
+		textTelefono.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Direcci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -111,56 +117,81 @@ public class PanelAltaVendedor extends JPanel {
 		lblPiso.setBounds(551, 48, 25, 14);
 		panel_1.add(lblPiso);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(82, 45, 188, 20);
-		panel_1.add(textField_5);
-		textField_5.setColumns(10);
+		textCalle = new JTextField();
+		textCalle.setBounds(82, 45, 188, 20);
+		panel_1.add(textCalle);
+		textCalle.setColumns(10);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(329, 45, 72, 20);
-		panel_1.add(textField_6);
-		textField_6.setColumns(10);
+		textNro = new JTextField();
+		textNro.setBounds(329, 45, 72, 20);
+		panel_1.add(textNro);
+		textNro.setColumns(10);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(450, 45, 86, 20);
-		panel_1.add(textField_7);
+		textDpto = new JTextField();
+		textDpto.setColumns(10);
+		textDpto.setBounds(450, 45, 86, 20);
+		panel_1.add(textDpto);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(586, 45, 86, 20);
-		panel_1.add(textField_8);
+		textPiso = new JTextField();
+		textPiso.setColumns(10);
+		textPiso.setBounds(586, 45, 86, 20);
+		panel_1.add(textPiso);
 		
 		JLabel lblNewLabel = new JLabel("Contrase\u00F1a (*)");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel.setBounds(41, 249, 132, 14);
 		panel.add(lblNewLabel);
 		
-		textField_9 = new JTextField();
-		textField_9.setBounds(186, 247, 171, 20);
-		panel.add(textField_9);
-		textField_9.setColumns(10);
+		textContra = new JTextField();
+		textContra.setBounds(186, 247, 171, 20);
+		panel.add(textContra);
+		textContra.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Confirmar contrase\u00F1a (*)");
 		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(367, 249, 165, 14);
 		panel.add(lblNewLabel_1);
 		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(542, 247, 171, 20);
-		panel.add(textField_10);
+		textContraConf = new JTextField();
+		textContraConf.setColumns(10);
+		textContraConf.setBounds(542, 247, 171, 20);
+		panel.add(textContraConf);
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnGuardar.setBounds(488, 513, 89, 23);
+		btnGuardar.addActionListener(l -> {
+			String nombre = this.textNombre.getText();
+			Integer dni = Integer.valueOf(this.textDNI.getText());
+			String correo = this.textCorreo.getText();
+			String apellido = this.textApellido.getText();
+			String telefono = this.textTelefono.getText();
+			String calle = this.textCalle.getText();
+			Integer nro =  Integer.valueOf(this.textNro.getText());
+			String dpto = this.textDpto.getText();
+			String piso = this.textPiso.getText();
+			String contra = this.textContra.getText();
+			String confContra = this.textContraConf.getText();
+			
+			Vendedor vendedor = new Vendedor(nombre, apellido, correo, dni, telefono, calle, nro, dpto, piso, contra, confContra);
+			if(gestorVendedor.validarCampos(vendedor).equals(false)) {
+				gestorVendedor.crearVendedor(vendedor);
+			}
+			
+		});
 		add(btnGuardar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnCancelar.setBounds(613, 513, 89, 23);
 		btnCancelar.addActionListener(l -> {
-		
+			login.setVisible(false);
+			login.setMinimumSize(new Dimension(300, 350));
+			login.setLocation(600, 200);
+			login.setContentPane(new AppVendedor());
+			login.pack();
+			login.revalidate();
+			login.repaint();
 		});
 		add(btnCancelar);
 		

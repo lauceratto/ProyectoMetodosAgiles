@@ -53,6 +53,7 @@ public class Login extends JFrame {
 		btnNewButton.addActionListener(e -> {
 			this.setMinimumSize(new Dimension(670, 340));
 			this.setLocation(300, 70);
+			this.setTitle("Inicio vendedor");
 			this.setContentPane(new PanelInicioVendedor(this));
 			this.pack();
 			this.revalidate();
