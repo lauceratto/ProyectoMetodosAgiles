@@ -5,7 +5,7 @@
 
   <persistence-unit name="Persistencia">
   
- 	<class>tp.dominio.Vendedor</class>
+ 	
   	<class>tp.dominio.Propietario</class>
  	<class>tp.dominio.Cliente</class>
  	<class>tp.dominio.Inmueble</class>
