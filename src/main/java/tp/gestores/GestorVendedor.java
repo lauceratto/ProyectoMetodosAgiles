@@ -9,10 +9,11 @@ public class GestorVendedor {
 
 	private DAOVendedor daoVendedor = new DAOVendedor();
 	
+	//Crea al vendedor y lo manda a guardar en la base de datos
 	public void crearVendedor(Vendedor vendedor) {
 		
-		if(daoVendedor.existeDNI(vendedor.getNombre()) == true) {
-			JOptionPane.showMessageDialog(null, "El nombre de la competencia ya existe, elija otro");
+		if(daoVendedor.existeDNI(vendedor.getDni()) == true) {
+			JOptionPane.showMessageDialog(null, "No es posible dar de alta al vendedor ya que el mismo se encuentra registrado");
 		}
 		else {
 			Vendedor vend = new Vendedor();
@@ -32,6 +33,7 @@ public class GestorVendedor {
 		}
 	}
 	
+	//Valida que los campos obligatorios esten completos
 	public Boolean validarCampos(Vendedor vendedor) {
 		if(vendedor.getNombre().equals("") || vendedor.getApellido().equals("") || vendedor.getCalle().equals("") 
 				|| vendedor.getTelefono().equals("")|| vendedor.getConfContra().equals("") || vendedor.getContrasenia().equals("") 
@@ -40,5 +42,11 @@ public class GestorVendedor {
 			return true;
 		}
 		return false;
+	}
+	
+	//Le manda el objeto vendedor al DaoVendedor para que actualice la base de datos con los nuevos datos.
+	public void actualizarEstacion(Vendedor vendedor) {
+		daoVendedor.actualizarVendedor(vendedor);
+		
 	}
 }

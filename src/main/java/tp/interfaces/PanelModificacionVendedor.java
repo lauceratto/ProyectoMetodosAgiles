@@ -12,21 +12,25 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 import tp.App.AppVendedor;
+import tp.dominio.Vendedor;
+import tp.gestores.GestorVendedor;
 
 import javax.swing.SwingConstants;
 
 public class PanelModificacionVendedor extends JPanel {
-	private JTextField txtPedro;
-	private JTextField textField_1;
-	private JTextField txtPedropgmailcom;
-	private JTextField txtPintos;
-	private JTextField textField_4;
-	private JTextField txtSaavedra;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
+	private JTextField txtNombre;
+	private JTextField textDni;
+	private JTextField txtCorreo;
+	private JTextField txtApellido;
+	private JTextField textTelefono;
+	private JTextField txtCalle;
+	private JTextField textNro;
+	private JTextField textDpto;
+	private JTextField textPiso;
+	private JTextField textContra;
+	private JTextField textConfContra;
+	private GestorVendedor gestorVendedor = new GestorVendedor();
+	
 	public PanelModificacionVendedor(Login login) {
 		setLayout(null);
 		
@@ -56,50 +60,51 @@ public class PanelModificacionVendedor extends JPanel {
 		lblNewLabe5.setBounds(41, 124, 91, 23);
 		panel.add(lblNewLabe5);
 		
-		txtPedro = new JTextField();
-		txtPedro.setFont(new Font("Arial", Font.BOLD, 14));
-		txtPedro.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPedro.setText("PEDRO");
-		txtPedro.setBounds(186, 55, 201, 20);
-		panel.add(txtPedro);
-		txtPedro.setColumns(10);
+		txtNombre = new JTextField();
+		txtNombre.setFont(new Font("Arial", Font.BOLD, 14));
+		txtNombre.setHorizontalAlignment(SwingConstants.CENTER);
+		txtNombre.setText("PEDRO");
+		txtNombre.setBounds(186, 55, 201, 20);
+		panel.add(txtNombre);
+		txtNombre.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setText("20384245");
-		textField_1.setFont(new Font("Arial", Font.BOLD, 14));
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setBounds(186, 126, 201, 20);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		textDni = new JTextField();
+		textDni.setEnabled(false);
+		textDni.setText("20384245");
+		textDni.setFont(new Font("Arial", Font.BOLD, 14));
+		textDni.setHorizontalAlignment(SwingConstants.CENTER);
+		textDni.setBounds(186, 126, 201, 20);
+		panel.add(textDni);
+		textDni.setColumns(10);
 		
-		txtPedropgmailcom = new JTextField();
-		txtPedropgmailcom.setText("PEDROP23@GMAIL.COM");
-		txtPedropgmailcom.setFont(new Font("Arial", Font.BOLD, 14));
-		txtPedropgmailcom.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPedropgmailcom.setBounds(186, 192, 520, 20);
-		panel.add(txtPedropgmailcom);
-		txtPedropgmailcom.setColumns(10);
+		txtCorreo = new JTextField();
+		txtCorreo.setText("PEDROP23@GMAIL.COM");
+		txtCorreo.setFont(new Font("Arial", Font.BOLD, 14));
+		txtCorreo.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCorreo.setBounds(186, 192, 520, 20);
+		panel.add(txtCorreo);
+		txtCorreo.setColumns(10);
 		
 		JLabel lblNewLabel1 = new JLabel("Apellido");
 		lblNewLabel1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel1.setBounds(406, 53, 91, 23);
 		panel.add(lblNewLabel1);
 		
-		txtPintos = new JTextField();
-		txtPintos.setFont(new Font("Arial", Font.BOLD, 14));
-		txtPintos.setText("PINTOS");
-		txtPintos.setHorizontalAlignment(SwingConstants.CENTER);
-		txtPintos.setBounds(507, 55, 201, 20);
-		panel.add(txtPintos);
-		txtPintos.setColumns(10);
+		txtApellido = new JTextField();
+		txtApellido.setFont(new Font("Arial", Font.BOLD, 14));
+		txtApellido.setText("PINTOS");
+		txtApellido.setHorizontalAlignment(SwingConstants.CENTER);
+		txtApellido.setBounds(507, 55, 201, 20);
+		panel.add(txtApellido);
+		txtApellido.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setText("3425201852");
-		textField_4.setFont(new Font("Arial", Font.BOLD, 14));
-		textField_4.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_4.setBounds(507, 126, 201, 20);
-		panel.add(textField_4);
-		textField_4.setColumns(10);
+		textTelefono = new JTextField();
+		textTelefono.setText("3425201852");
+		textTelefono.setFont(new Font("Arial", Font.BOLD, 14));
+		textTelefono.setHorizontalAlignment(SwingConstants.CENTER);
+		textTelefono.setBounds(507, 126, 201, 20);
+		panel.add(textTelefono);
+		textTelefono.setColumns(10);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(null, "Direcci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -127,65 +132,81 @@ public class PanelModificacionVendedor extends JPanel {
 		lblPiso.setBounds(551, 48, 25, 14);
 		panel_1.add(lblPiso);
 		
-		txtSaavedra = new JTextField();
-		txtSaavedra.setText("SAAVEDRA");
-		txtSaavedra.setFont(new Font("Arial", Font.BOLD, 14));
-		txtSaavedra.setHorizontalAlignment(SwingConstants.CENTER);
-		txtSaavedra.setBounds(82, 45, 188, 20);
-		panel_1.add(txtSaavedra);
-		txtSaavedra.setColumns(10);
+		txtCalle = new JTextField();
+		txtCalle.setText("SAAVEDRA");
+		txtCalle.setFont(new Font("Arial", Font.BOLD, 14));
+		txtCalle.setHorizontalAlignment(SwingConstants.CENTER);
+		txtCalle.setBounds(82, 45, 188, 20);
+		panel_1.add(txtCalle);
+		txtCalle.setColumns(10);
 		
-		textField_6 = new JTextField();
-		textField_6.setText("2075");
-		textField_6.setFont(new Font("Arial", Font.BOLD, 14));
-		textField_6.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_6.setBounds(329, 45, 72, 20);
-		panel_1.add(textField_6);
-		textField_6.setColumns(10);
+		textNro = new JTextField();
+		textNro.setText("2075");
+		textNro.setFont(new Font("Arial", Font.BOLD, 14));
+		textNro.setHorizontalAlignment(SwingConstants.CENTER);
+		textNro.setBounds(329, 45, 72, 20);
+		panel_1.add(textNro);
+		textNro.setColumns(10);
 		
-		textField_7 = new JTextField();
-		textField_7.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_7.setColumns(10);
-		textField_7.setBounds(450, 45, 86, 20);
-		panel_1.add(textField_7);
+		textDpto = new JTextField();
+		textDpto.setHorizontalAlignment(SwingConstants.CENTER);
+		textDpto.setColumns(10);
+		textDpto.setBounds(450, 45, 86, 20);
+		panel_1.add(textDpto);
 		
-		textField_8 = new JTextField();
-		textField_8.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_8.setColumns(10);
-		textField_8.setBounds(586, 45, 86, 20);
-		panel_1.add(textField_8);
+		textPiso = new JTextField();
+		textPiso.setHorizontalAlignment(SwingConstants.CENTER);
+		textPiso.setColumns(10);
+		textPiso.setBounds(586, 45, 86, 20);
+		panel_1.add(textPiso);
 		
 		JLabel lblNewLabel = new JLabel("Contrase\u00F1a");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel.setBounds(41, 249, 132, 14);
 		panel.add(lblNewLabel);
 		
-		textField_9 = new JTextField();
-		textField_9.setFont(new Font("Arial", Font.BOLD, 14));
-		textField_9.setText("***************");
-		textField_9.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_9.setBounds(186, 247, 171, 20);
-		panel.add(textField_9);
-		textField_9.setColumns(10);
+		textContra = new JTextField();
+		textContra.setFont(new Font("Arial", Font.BOLD, 14));
+		textContra.setText("***************");
+		textContra.setHorizontalAlignment(SwingConstants.CENTER);
+		textContra.setBounds(186, 247, 171, 20);
+		panel.add(textContra);
+		textContra.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Confirmar contrase\u00F1a");
 		lblNewLabel_1.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNewLabel_1.setBounds(367, 249, 165, 14);
 		panel.add(lblNewLabel_1);
 		
-		textField_10 = new JTextField();
-		textField_10.setFont(new Font("Arial", Font.BOLD, 14));
-		textField_10.setText("***************");
-		textField_10.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_10.setColumns(10);
-		textField_10.setBounds(542, 247, 171, 20);
-		panel.add(textField_10);
+		textConfContra = new JTextField();
+		textConfContra.setFont(new Font("Arial", Font.BOLD, 14));
+		textConfContra.setText("***************");
+		textConfContra.setHorizontalAlignment(SwingConstants.CENTER);
+		textConfContra.setColumns(10);
+		textConfContra.setBounds(542, 247, 171, 20);
+		panel.add(textConfContra);
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnGuardar.setBounds(488, 513, 89, 23);
 		btnGuardar.addActionListener(l -> {
-			JOptionPane.showMessageDialog(null, "Su datos fueron actualizados con exito!");
+			String nombre = this.txtNombre.getText();
+			Integer dni = Integer.valueOf(this.textDni.getText());
+			String correo = this.txtCorreo.getText();
+			String apellido = this.txtApellido.getText();
+			String telefono = this.textTelefono.getText();
+			String calle = this.txtCalle.getText();
+			Integer nro =  Integer.valueOf(this.textNro.getText());
+			String dpto = this.textDpto.getText();
+			String piso = this.textPiso.getText();
+			String contra = this.textContra.getText();
+			String confContra = this.textConfContra.getText();
+			
+			Vendedor vendedor = new Vendedor(nombre, apellido, correo, dni, telefono, calle, nro, dpto, piso, contra, confContra);
+			
+			gestorVendedor.actualizarEstacion(vendedor);
+			
+			JOptionPane.showMessageDialog(null, "Sus datos fueron actualizados con exito!");
 			login.setMinimumSize(new Dimension(670, 340));
 			login.setLocation(300, 70);
 			login.setTitle("Inicio vendedor");
