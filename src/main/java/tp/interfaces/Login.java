@@ -74,6 +74,7 @@ public class Login extends JFrame {
 			this.repaint();
 		
 		});
+		
 		getContentPane().add(btnCancelar);
 		
 		

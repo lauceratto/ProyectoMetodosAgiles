@@ -15,7 +15,6 @@ public class Propietario implements Serializable{
 	private String nombre;
 	private String apellido;
 	private String email;
-	private String tipoDoc;
 	private Integer dni;
 	private String telefono;
 	private String calle;
@@ -29,13 +28,12 @@ public class Propietario implements Serializable{
 	public Propietario() {
 	}
 	
-	public Propietario(String nombre, String apellido, String email, String tipoDoc, Integer dNI, String telefono,
+	public Propietario(String nombre, String apellido, String email, Integer dNI, String telefono,
 			String calle, Integer nro, String depto, String piso, String provincia, String localidad) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
-		this.tipoDoc = tipoDoc;
 		this.dni = dNI;
 		this.telefono = telefono;
 		this.calle = calle;
@@ -49,6 +47,13 @@ public class Propietario implements Serializable{
 	
 	//GETTERS Y SETTERS.
 	
+	@Override
+	public String toString() {
+		return "Propietario [nombre=" + nombre + ", apellido=" + apellido + ", email=" + email + ", dni=" + dni
+				+ ", telefono=" + telefono + ", calle=" + calle + ", numeroCalle=" + numeroCalle + ", depto=" + depto
+				+ ", piso=" + piso + ", provincia=" + provincia + ", localidad=" + localidad + "]";
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -71,14 +76,6 @@ public class Propietario implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getTipoDoc() {
-		return tipoDoc;
-	}
-
-	public void setTipoDoc(String tipoDoc) {
-		this.tipoDoc = tipoDoc;
 	}
 
 	public Integer getDni() {

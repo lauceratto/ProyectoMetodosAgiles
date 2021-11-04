@@ -27,6 +27,7 @@ public class PanelModificacionVendedor extends JPanel {
 	private JTextField textField_8;
 	private JTextField textField_9;
 	private JTextField textField_10;
+	
 	public PanelModificacionVendedor(Login login) {
 		setLayout(null);
 		

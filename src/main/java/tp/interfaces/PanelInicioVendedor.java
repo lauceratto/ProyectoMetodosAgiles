@@ -10,17 +10,22 @@ import tp.App.AppVendedor;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PanelInicioVendedor extends JPanel {
 
 	
 	public PanelInicioVendedor(Login login) {
+		
 		setLayout(null);
-		JPanel panel = new JPanel();
-		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 0), new Color(160, 160, 160)), "Gestion Vendedor", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(384, 27, 256, 88);
-		add(panel);
-		panel.setLayout(null);
+		
+		//PANEL GESTION VENDEDOR.
+		JPanel panelGestionVendedor = new JPanel();
+		panelGestionVendedor.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 0), new Color(160, 160, 160)), "Gestion Vendedor", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panelGestionVendedor.setBounds(384, 27, 256, 88);
+		add(panelGestionVendedor);
+		panelGestionVendedor.setLayout(null);
 		
 		//setIconImage(Toolkit.getDefaultToolkit().getImage(PanelInicioVendedor.class.getResource("/tp/icons/Icon.png")));
 		
@@ -40,7 +45,7 @@ public class PanelInicioVendedor extends JPanel {
 				
 			}
 		});
-		panel.add(btnBajaVendedor);
+		panelGestionVendedor.add(btnBajaVendedor);
 		
 		JButton btnModificar = new JButton("Modificar");
 		btnModificar.setBounds(146, 36, 89, 23);
@@ -52,46 +57,72 @@ public class PanelInicioVendedor extends JPanel {
 			login.pack();
 			login.revalidate();
 			login.repaint();
-			
 		});
-		panel.add(btnModificar);
+		panelGestionVendedor.add(btnModificar);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 0, 0), new Color(160, 160, 160)), "Gestion Propietario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBounds(10, 27, 345, 88);
-		add(panel_1);
-		panel_1.setLayout(null);
+		//PANEL GESTION PROPIETARIO.
+		JPanel panelGestionPropietario = new JPanel();
+		panelGestionPropietario.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 0, 0), new Color(160, 160, 160)), "Gestion Propietario", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		panelGestionPropietario.setBounds(10, 27, 345, 88);
+		add(panelGestionPropietario);
+		panelGestionPropietario.setLayout(null);
 		
 		JButton btnAltaPropietario = new JButton("Alta Propietario");
 		btnAltaPropietario.setBounds(35, 39, 128, 23);
-		panel_1.add(btnAltaPropietario);
+		btnAltaPropietario.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				login.setMinimumSize(new Dimension(1000, 600));
+				login.setLocation(300, 70);
+				login.setTitle("Alta propietario");
+				login.setContentPane(new PanelAltaPropietario(login));
+				login.pack();
+				login.revalidate();
+				login.repaint();
+			}
+		});
+		panelGestionPropietario.add(btnAltaPropietario);
 		
-		JButton btnModificarPropietario = new JButton("Lista Propietarios");
-		btnModificarPropietario.setBounds(186, 39, 137, 23);
-		panel_1.add(btnModificarPropietario);
+		JButton btnListaPropietarios = new JButton("Lista Propietarios");
+		btnListaPropietarios.setBounds(186, 39, 137, 23);
+		btnListaPropietarios.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				login.setMinimumSize(new Dimension(670, 340));
+				login.setLocation(300, 70);
+				login.setTitle("Lista propietarios");
+				login.setContentPane(new PanelPropietarioLista(login));
+				login.pack();
+				login.revalidate();
+				login.repaint();
+			}
+		});
+		panelGestionPropietario.add(btnListaPropietarios);
 		
-		JPanel panel_1_1 = new JPanel();
-		panel_1_1.setLayout(null);
-		panel_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(0, 0, 255), new Color(160, 160, 160)), "Gestion Inmueble", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1_1.setBounds(10, 164, 345, 88);
-		add(panel_1_1);
+		//PANEL GESTION DE INMUEBLE.
+		JPanel panelGestionInmueble = new JPanel();
+		panelGestionInmueble.setLayout(null);
+		panelGestionInmueble.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(0, 0, 255), new Color(160, 160, 160)), "Gestion Inmueble", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panelGestionInmueble.setBounds(10, 164, 345, 88);
+		add(panelGestionInmueble);
 		
 		JButton btnAltaInmueble = new JButton("Alta Inmueble");
 		btnAltaInmueble.setBounds(40, 39, 124, 23);
-		panel_1_1.add(btnAltaInmueble);
+		panelGestionInmueble.add(btnAltaInmueble);
 		
 		JButton btnModificarInmueble = new JButton("Lista Inmuebles");
 		btnModificarInmueble.setBounds(191, 39, 131, 23);
-		panel_1_1.add(btnModificarInmueble);
+		panelGestionInmueble.add(btnModificarInmueble);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(0, 128, 0), new Color(160, 160, 160)), "Gestion Cliente", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_2.setBounds(384, 164, 256, 88);
-		add(panel_2);
+		//PANEL GESTION CLIENTE.
+		JPanel panelGestionCliente = new JPanel();
+		panelGestionCliente.setLayout(null);
+		panelGestionCliente.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(0, 128, 0), new Color(160, 160, 160)), "Gestion Cliente", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panelGestionCliente.setBounds(384, 164, 256, 88);
+		add(panelGestionCliente);
 		
 		JButton btnListaClientes = new JButton("Lista Clientes");
 		btnListaClientes.setBounds(70, 38, 125, 23);
-		panel_2.add(btnListaClientes);
+		panelGestionCliente.add(btnListaClientes);
 	}
 }

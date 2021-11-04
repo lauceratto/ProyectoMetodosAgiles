@@ -174,6 +174,7 @@ public class PanelAltaVendedor extends JPanel {
 			String confContra = this.textContraConf.getText();
 			
 			Vendedor vendedor = new Vendedor(nombre, apellido, correo, dni, telefono, calle, nro, dpto, piso, contra, confContra);
+			
 			if(gestorVendedor.validarCampos(vendedor).equals(false)) {
 				gestorVendedor.crearVendedor(vendedor);
 			}
