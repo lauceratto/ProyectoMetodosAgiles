@@ -2,9 +2,15 @@ package tp.interfaces;
 
 import java.awt.Color;
 import java.awt.event.*;
+import java.time.LocalDate;
 
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import tp.dominio.Inmueble;
+import tp.dominio.Propietario;
+import tp.gestores.GestorInmueble;
+
 import javax.swing.JLabel;
 import javax.swing.border.EtchedBorder;
 import java.awt.Font;
@@ -14,8 +20,10 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 
-public class PanelAltaInmueble extends JPanel implements ItemListener{
+public class PanelAltaInmueble extends JPanel{
 	private JTextField txtNumero;
 	private JTextField txtPiso;
 	private JTextField txtPrecio;
@@ -23,13 +31,32 @@ public class PanelAltaInmueble extends JPanel implements ItemListener{
 	private JTextField txtNuevaCalle;
 	private JTextField txtNuevoBarrio;
 	private JComboBox listaLocalidad;
-	JLabel lblNuevaLocalidad;
+	private JLabel lblNuevaLocalidad;
 	private JTextField txtLongitudFrente;
 	private JTextField txtAntiguedad;
 	private JTextField txtLongitudFondo;
 	private JTextField txtDormitorios;
 	private JTextField txtSuperficie;
-
+	private JComboBox listaPropietario;
+	private JComboBox listaProvincia;
+	private JComboBox listaCalle;
+	private JComboBox listaBarrio;
+	private JComboBox listaTipo;
+	private JComboBox listaOrientacion;
+	private JCheckBox checkHorizontal;
+	private JCheckBox checkGaraje;
+	private JCheckBox checkPatio;
+	private JCheckBox checkPiscina;
+	private JCheckBox checkAguaCorriente;
+	private JCheckBox checkGas;
+	private JCheckBox checkTelefono;
+	private JCheckBox checkLavadero;
+	private JCheckBox checkPavimento;
+	private JCheckBox checkCloacas;
+	private JCheckBox checkAguaCaliente;
+	private JTextArea textArea;
+	
+	private GestorInmueble gestorInmueble = new GestorInmueble();
 	
 	public PanelAltaInmueble() {
 		setLayout(null);
@@ -90,12 +117,12 @@ public class PanelAltaInmueble extends JPanel implements ItemListener{
 		lblOrientacion.setBounds(25, 353, 90, 25);
 		panel.add(lblOrientacion);
 		
-		JComboBox listaPropietario = new JComboBox();
+		listaPropietario = new JComboBox();
 		listaPropietario.setBounds(140, 41, 167, 21);	
 		listaPropietario.addItem("Seleccionar");
 		panel.add(listaPropietario);
 		
-		JComboBox listaProvincia = new JComboBox();
+		listaProvincia = new JComboBox();
 		listaProvincia.setBounds(140, 76, 167, 21);
 		listaProvincia.addItem("Santa Fe");
 		panel.add(listaProvincia);
@@ -118,12 +145,10 @@ public class PanelAltaInmueble extends JPanel implements ItemListener{
 		listaLocalidad.addItem("Santa Fe");
 		listaLocalidad.addItem("Santo Tome");
 		listaLocalidad.addItem("Otra");
-		
-		listaLocalidad.addItemListener(this);
 
 		panel.add(listaLocalidad);
 		
-		JComboBox listaCalle = new JComboBox();
+		listaCalle = new JComboBox();
 		listaCalle.setBounds(140, 146, 167, 21);
 		listaCalle.addItem("Seleccionar");
 		panel.add(listaCalle);
@@ -138,12 +163,12 @@ public class PanelAltaInmueble extends JPanel implements ItemListener{
 		txtPiso.setBounds(140, 217, 74, 19);
 		panel.add(txtPiso);
 		
-		JComboBox listaBarrio = new JComboBox();
+		listaBarrio = new JComboBox();
 		listaBarrio.setBounds(140, 251, 167, 21);
 		listaBarrio.addItem("Seleccionar");
 		panel.add(listaBarrio);
 		
-		JComboBox listaTipo = new JComboBox();
+		listaTipo = new JComboBox();
 		listaTipo.setBounds(140, 286, 167, 21);
 		listaTipo.addItem("Seleccionar");
 		panel.add(listaTipo);
@@ -158,7 +183,7 @@ public class PanelAltaInmueble extends JPanel implements ItemListener{
 		lblPrecioFinal.setBounds(315, 318, 115, 25);
 		panel.add(lblPrecioFinal);
 		
-		JComboBox listaOrientacion = new JComboBox();
+		listaOrientacion = new JComboBox();
 		listaOrientacion.setBounds(140, 356, 167, 21);
 		listaOrientacion.addItem("Seleccionar");
 		panel.add(listaOrientacion);
@@ -259,57 +284,57 @@ public class PanelAltaInmueble extends JPanel implements ItemListener{
 		lblSuperficie_2.setBounds(1118, 353, 36, 25);
 		panel.add(lblSuperficie_2);
 		
-		JCheckBox checkHorizontal = new JCheckBox("Propiedad horizontal");
+		checkHorizontal = new JCheckBox("Propiedad horizontal");
 		checkHorizontal.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkHorizontal.setBounds(25, 390, 161, 21);
 		panel.add(checkHorizontal);
 		
-		JCheckBox checkGaraje = new JCheckBox("Garaje/Cochera");
+		checkGaraje = new JCheckBox("Garaje/Cochera");
 		checkGaraje.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkGaraje.setBounds(25, 428, 161, 21);
 		panel.add(checkGaraje);
 		
-		JCheckBox checkPatio = new JCheckBox("Patio");
+		checkPatio = new JCheckBox("Patio");
 		checkPatio.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkPatio.setBounds(297, 428, 74, 21);
 		panel.add(checkPatio);
 		
-		JCheckBox checkPiscina = new JCheckBox("Piscina");
+		checkPiscina = new JCheckBox("Piscina");
 		checkPiscina.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkPiscina.setBounds(514, 428, 161, 21);
 		panel.add(checkPiscina);
 		
-		JCheckBox checkAguaCorriente = new JCheckBox("Agua corriente");
+		checkAguaCorriente = new JCheckBox("Agua corriente");
 		checkAguaCorriente.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkAguaCorriente.setBounds(747, 428, 161, 21);
 		panel.add(checkAguaCorriente);
 		
-		JCheckBox checkGas = new JCheckBox("Gas natural");
+		checkGas = new JCheckBox("Gas natural");
 		checkGas.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkGas.setBounds(1003, 428, 105, 21);
 		panel.add(checkGas);
 		
-		JCheckBox checkTelefono = new JCheckBox("Tel\u00E9fono");
+		checkTelefono = new JCheckBox("Tel\u00E9fono");
 		checkTelefono.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkTelefono.setBounds(25, 467, 161, 21);
 		panel.add(checkTelefono);
 		
-		JCheckBox checkLavadero = new JCheckBox("Lavadero");
+		checkLavadero = new JCheckBox("Lavadero");
 		checkLavadero.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkLavadero.setBounds(297, 468, 161, 21);
 		panel.add(checkLavadero);
 		
-		JCheckBox checkPavimento = new JCheckBox("Pavimento");
+		checkPavimento = new JCheckBox("Pavimento");
 		checkPavimento.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkPavimento.setBounds(514, 468, 161, 21);
 		panel.add(checkPavimento);
 		
-		JCheckBox checkCloacas = new JCheckBox("Cloacas");
+		checkCloacas = new JCheckBox("Cloacas");
 		checkCloacas.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkCloacas.setBounds(747, 468, 161, 21);
 		panel.add(checkCloacas);
 		
-		JCheckBox checkAguaCaliente = new JCheckBox("Agua caliente");
+		checkAguaCaliente = new JCheckBox("Agua caliente");
 		checkAguaCaliente.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkAguaCaliente.setBounds(1003, 468, 122, 21);
 		panel.add(checkAguaCaliente);
@@ -325,7 +350,7 @@ public class PanelAltaInmueble extends JPanel implements ItemListener{
 		lblObservaciones.setBounds(385, 506, 105, 25);
 		panel.add(lblObservaciones);
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		textArea.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		textArea.setBounds(514, 509, 594, 75);
 		panel.add(textArea);
@@ -338,15 +363,49 @@ public class PanelAltaInmueble extends JPanel implements ItemListener{
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnGuardar.setBounds(1019, 664, 85, 21);
+		
+		btnGuardar.addActionListener(e -> {
+			Propietario prop = new Propietario(); //Sacar
+			//Propietario propietario = this.listaPropietario.getSelectedItem()
+			String provincia = this.listaProvincia.getSelectedItem().toString();
+			String localidad = this.listaLocalidad.getSelectedItem().toString();
+			String calle = this.listaCalle.getSelectedItem().toString();
+			String numero = this.txtNumero.getText();
+			String piso = this.txtPiso.getText();
+			String barrio = this.listaBarrio.getSelectedItem().toString();
+			String tipo = this.listaTipo.getSelectedItem().toString();
+			Double precio = Double.parseDouble( this.txtPrecio.getText());
+			String orientacion = this.listaOrientacion.getSelectedItem().toString();
+			Double longFrente = Double.parseDouble(this.txtLongitudFrente.getText());
+			Double longFondo = Double.parseDouble(this.txtLongitudFondo.getText());
+			Double superficie = Double.parseDouble(this.txtSuperficie.getText());
+			Integer antiguedad = Integer.parseInt(this.txtAntiguedad.getText());
+			Integer dormitorios = Integer.parseInt(this.txtDormitorios.getText());
+			Boolean horizontal = this.checkHorizontal.isSelected();
+			Boolean garaje = this.checkGaraje.isSelected();
+			Boolean patio = this.checkPatio.isSelected();
+			Boolean piscina = this.checkPiscina.isSelected();
+			Boolean aguaCorriente = this.checkAguaCorriente.isSelected();
+			Boolean gas = this.checkGas.isSelected();
+			Boolean telefono = this.checkTelefono.isSelected();
+			Boolean lavadero = this.checkLavadero.isSelected();
+			Boolean pavimento = this.checkPavimento.isSelected();
+			Boolean cloaca = this.checkCloacas.isSelected();
+			Boolean aguaCaliente = this.checkAguaCaliente.isSelected();
+			String observaciones = this.textArea.getText();
+			
+			Inmueble inmueble = new Inmueble(prop, provincia, localidad, calle, numero, piso, barrio, tipo, precio, orientacion, longFrente,
+						                     longFondo, superficie, antiguedad, dormitorios, horizontal, garaje, patio, piscina, aguaCorriente,
+						                     gas, telefono, lavadero, pavimento, cloaca, aguaCaliente, observaciones, LocalDate.now(), true);
+			
+			if(gestorInmueble.validarCampos(inmueble)) {
+				gestorInmueble.crearInmueble(inmueble);
+			}
+		});
+		
 		add(btnGuardar);
 
 	}
 	
-	public void itemStateChanged(ItemEvent e) {
-        if (e.getSource()==listaLocalidad) {
-            if(((String)listaLocalidad.getSelectedItem()).equals("Otra")) {
-            	lblNuevaLocalidad.setForeground(Color.BLACK);
-            }
-        }
-    }
+	
 }
