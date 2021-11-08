@@ -14,6 +14,9 @@ import tp.dominio.Cliente;
 import tp.dominio.Inmueble;
 import tp.gestores.GestorCliente;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class PanelModificacionCliente extends JPanel{
 	
 	/**
@@ -21,19 +24,13 @@ public class PanelModificacionCliente extends JPanel{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
-	private JTextField textNombre;
-	private JTextField textApellido;
-	private JTextField textTelefono;
-	private JTextField textDNI;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	
-	
+	private JTextField textMatiasNombre;
+	private JTextField textMatiasApellido;
+	private JTextField textMatiasTelefono;
+	private JTextField textMatiasDNI;
+	private JTextField textMatiasMinimo;
+	private JTextField textMatiasMaximo;
 	private GestorCliente gestorCliente = new GestorCliente();
-	private JTextField textField_4;
-	private JTextField textField_5;
 	
 	public PanelModificacionCliente() {
 		setLayout(null);
@@ -44,10 +41,11 @@ public class PanelModificacionCliente extends JPanel{
 		add(panel);
 		panel.setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(241, 54, 141, 20);
-		panel.add(textField);
-		textField.setColumns(10);
+		textMatiasNombre = new JTextField();
+		textMatiasNombre.setBounds(241, 54, 141, 20);
+		textMatiasNombre.setColumns(10);
+		textMatiasNombre.setText("MATIAS");
+		panel.add(textMatiasNombre);
 		
 		JLabel lblNewLabel = new JLabel("Nombre (*)");
 		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -69,32 +67,68 @@ public class PanelModificacionCliente extends JPanel{
 		lblNewLabel_3.setBounds(88, 245, 155, 20);
 		panel.add(lblNewLabel_3);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(241, 113, 141, 20);
-		panel.add(textField_1);
+		textMatiasApellido = new JTextField();
+		textMatiasApellido.setColumns(10);
+		textMatiasApellido.setBounds(241, 113, 141, 20);
+		textMatiasApellido.setText("Perez");
+		panel.add(textMatiasApellido);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(562, 55, 141, 20);
-		panel.add(textField_2);
+		textMatiasTelefono = new JTextField();
+		textMatiasTelefono.setColumns(10);
+		textMatiasTelefono.setBounds(562, 55, 141, 20);
+		textMatiasTelefono.setText("4550465");
+		panel.add(textMatiasTelefono);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(562, 114, 141, 20);
-		panel.add(textField_3);
+		textMatiasDNI = new JTextField();
+		textMatiasDNI.setColumns(10);
+		textMatiasDNI.setBounds(562, 114, 141, 20);
+		textMatiasDNI.setText("15024963");
+		panel.add(textMatiasDNI);
 		
+		JLabel lblNewLabel_3_1 = new JLabel("DNI (*)");
+		lblNewLabel_3_1.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_1.setBounds(409, 112, 155, 20);
+		panel.add(lblNewLabel_3_1);
+		
+		JLabel lblNewLabel_3_1_1 = new JLabel("Máximo (*)");
+		lblNewLabel_3_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_1_1.setBounds(409, 245, 155, 20);
+		panel.add(lblNewLabel_3_1_1);
+		
+		JLabel lblNewLabel_3_2 = new JLabel("Presupuesto de inmueble");
+		lblNewLabel_3_2.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_2.setBounds(88, 200, 199, 20);
+		panel.add(lblNewLabel_3_2);
+		
+		textMatiasMinimo = new JTextField();
+		textMatiasMinimo.setColumns(10);
+		textMatiasMinimo.setBounds(241, 246, 141, 20);
+		textMatiasMinimo.setText("300000");
+		panel.add(textMatiasMinimo);
+		
+		textMatiasMaximo = new JTextField();
+		textMatiasMaximo.setColumns(10);
+		textMatiasMaximo.setBounds(562, 246, 141, 20);
+		textMatiasMaximo.setText("500000");
+		panel.add(textMatiasMaximo);
+		
+		JLabel lblNewLabel_3_2_1 = new JLabel("--------------------------------------------------------------------------");
+		lblNewLabel_3_2_1.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_2_1.setBounds(177, 165, 387, 20);
+		panel.add(lblNewLabel_3_2_1);
+		
+	
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addActionListener(
 			l -> {
-				String nombre = this.textNombre.getText();
-				String apellido = this.textApellido.getText();
-				String telefono = this.textTelefono.getText();
-				Integer dni = Integer.valueOf(this.textDNI.getText());
-			//	Float minimo = Float.valueOf(this..getText());
-				//Float maximo = Float.valueOf(this.t.getText());
+				String nombre = this.textMatiasNombre.getText();
+				String apellido = this.textMatiasApellido.getText();
+				String telefono = this.textMatiasTelefono.getText();
+				Integer dni = Integer.valueOf(this.textMatiasDNI.getText());
+				Float minimo = Float.valueOf(this.textMatiasMinimo.getText());
+				Float maximo = Float.valueOf(this.textMatiasMaximo.getText());
 				
-		//		Cliente cliente = new Cliente(nombre, apellido, telefono, dni, minimo, maximo);
+				Cliente cliente = new Cliente(nombre, apellido, telefono, dni, minimo, maximo);
 				if(gestorCliente.validarCampos(cliente).equals(false)) {
 					gestorCliente.crearCliente(cliente);
 				}
@@ -114,36 +148,5 @@ public class PanelModificacionCliente extends JPanel{
 		});
 		panel.add(btnCancelar);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("DNI (*)");
-		lblNewLabel_3_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_1.setBounds(409, 112, 155, 20);
-		panel.add(lblNewLabel_3_1);
-		
-		JLabel lblNewLabel_3_1_1 = new JLabel("Máximo (*)");
-		lblNewLabel_3_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_1_1.setBounds(409, 245, 155, 20);
-		panel.add(lblNewLabel_3_1_1);
-		
-		JLabel lblNewLabel_3_2 = new JLabel("Presupuesto de inmueble");
-		lblNewLabel_3_2.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_2.setBounds(88, 200, 199, 20);
-		panel.add(lblNewLabel_3_2);
-		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(241, 246, 141, 20);
-		panel.add(textField_4);
-		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(562, 246, 141, 20);
-		panel.add(textField_5);
-		
-		JLabel lblNewLabel_3_2_1 = new JLabel("--------------------------------------------------------------------------");
-		lblNewLabel_3_2_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_2_1.setBounds(177, 165, 387, 20);
-		panel.add(lblNewLabel_3_2_1);
-		
-	
 	}
 }

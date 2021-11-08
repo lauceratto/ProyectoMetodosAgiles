@@ -28,7 +28,9 @@ public class PanelAltaCliente extends JPanel {
 	
 	private GestorCliente gestorCliente = new GestorCliente();
 	
-	public PanelAltaCliente(Inmueble inmueble, Float montoMinimo, Float montoMaximo) {
+	
+	
+	public PanelAltaCliente(Inmueble inmueble, float montoMinimo, float montoMaximo) {
 		setLayout(null);
 		panel = new JPanel();
 		panel.setBounds(new Rectangle(71, 60, 750, 451));
