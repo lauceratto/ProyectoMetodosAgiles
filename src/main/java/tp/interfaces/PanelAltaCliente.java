@@ -13,8 +13,9 @@ import java.awt.Font;
 import java.awt.Rectangle;
 import javax.swing.JLabel;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
-public class PanelAltaCliente extends JPanel {
+public class PanelAltaCliente extends JFrame{
 	/**
 	 * 
 	 */
@@ -31,6 +32,11 @@ public class PanelAltaCliente extends JPanel {
 	
 	
 	public PanelAltaCliente(Inmueble inmueble, float montoMinimo, float montoMaximo) {
+		
+		
+		
+		
+		
 		setLayout(null);
 		panel = new JPanel();
 		panel.setBounds(new Rectangle(71, 60, 750, 451));
