@@ -78,10 +78,30 @@ public class PanelInicioVendedor extends JPanel {
 		
 		JButton btnAltaInmueble = new JButton("Alta Inmueble");
 		btnAltaInmueble.setBounds(40, 39, 124, 23);
+		btnAltaInmueble.addActionListener(l -> {
+			login.setMinimumSize(new Dimension(900, 620));
+			login.setLocation(300, 70);
+			login.setTitle("Alta inmueble");
+			login.setContentPane(new PanelAltaInmueble(login));
+			login.pack();
+			login.revalidate();
+			login.repaint();
+			
+		});
 		panel_1_1.add(btnAltaInmueble);
 		
 		JButton btnModificarInmueble = new JButton("Lista Inmuebles");
 		btnModificarInmueble.setBounds(191, 39, 131, 23);
+		btnModificarInmueble.addActionListener(l -> {
+			login.setMinimumSize(new Dimension(900, 620));
+			login.setLocation(300, 70);
+			login.setTitle("Lista de inmuebles");
+			login.setContentPane(new PanelListaInmueble(login));
+			login.pack();
+			login.revalidate();
+			login.repaint();
+			
+		});
 		panel_1_1.add(btnModificarInmueble);
 		
 		JPanel panel_2 = new JPanel();
