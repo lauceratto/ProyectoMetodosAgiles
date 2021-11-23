@@ -68,4 +68,8 @@ public class GestorInmueble {
 
 		daoInmueble.modificarInmueble(inmueble);
 	}
+	
+	public void eliminarInmueble(Inmueble inmueble){
+		daoInmueble.eliminarInmueble(inmueble);
+	}
 }

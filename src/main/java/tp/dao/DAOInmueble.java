@@ -17,4 +17,8 @@ public class DAOInmueble {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void eliminarInmueble(Inmueble inmueble) {
+		
+	}
 }
