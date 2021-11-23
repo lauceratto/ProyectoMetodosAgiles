@@ -9,9 +9,20 @@ public class DAOCliente {
 		
 	}
 
-	public boolean existeDNI(String nombre) {
+	public boolean existeDNI(Integer integer) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public boolean existeTelefono(String nombre) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public void modificarCliente(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

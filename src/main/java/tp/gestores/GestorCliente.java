@@ -11,14 +11,18 @@ public class GestorCliente {
 	
 	public void crearCliente(Cliente cliente) {
 		
-		if(daoCliente.existeDNI(cliente.getNombre()) == true) {
-			JOptionPane.showMessageDialog(null, "El nombre de la competencia ya existe, elija otro");
+		//valida que no exista un cliente en la bd con el mismo dni y telefono
+		if(daoCliente.existeDNI(cliente.getDni()) == true) {
+			JOptionPane.showMessageDialog(null, "El DNI de la competencia ya existe, elija otro");
+		}
+		else if(daoCliente.existeTelefono(cliente.getTelefono()) == true) {
+			JOptionPane.showMessageDialog(null, "El telefono de la competencia ya existe, elija otro");
 		}
 		else {
 			daoCliente.guardarVendedor(cliente);
 		}		
 	}
-	
+	//valida que los campos obligatorios esten completos
 	public Boolean validarCampos(Cliente cliente) {
 		if(cliente.getNombre().equals("") || cliente.getApellido().equals("") || cliente.getTelefono().equals("") 
 				|| cliente.getDni().equals("")) {
@@ -26,5 +30,11 @@ public class GestorCliente {
 			return true;
 		}
 		return false;
+	}
+	
+	// Le manda el objeto cliente al DaoCliente para que actualiza la base de datos con los nuevos datos.
+	public void modificarCliente(Cliente cliente) {
+		daoCliente.modificarCliente(cliente);
+		
 	}
 }
