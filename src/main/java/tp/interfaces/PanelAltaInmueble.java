@@ -1,12 +1,14 @@
 package tp.interfaces;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.*;
 import java.time.LocalDate;
 
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
+import tp.App.AppVendedor;
 import tp.dominio.Inmueble;
 import tp.dominio.Propietario;
 import tp.gestores.GestorInmueble;
@@ -57,8 +59,9 @@ public class PanelAltaInmueble extends JPanel{
 	private JTextArea textArea;
 	
 	private GestorInmueble gestorInmueble = new GestorInmueble();
+	private JTextField txtBanios;
 	
-	public PanelAltaInmueble() {
+	public PanelAltaInmueble(Login login) {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -284,6 +287,16 @@ public class PanelAltaInmueble extends JPanel{
 		lblSuperficie_2.setBounds(1118, 353, 36, 25);
 		panel.add(lblSuperficie_2);
 		
+		JLabel lblBanios = new JLabel("Cant. ba\u00F1os");
+		lblBanios.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblBanios.setBounds(950, 388, 78, 25);
+		panel.add(lblBanios);
+		
+		txtBanios = new JTextField();
+		txtBanios.setColumns(10);
+		txtBanios.setBounds(1034, 392, 74, 19);
+		panel.add(txtBanios);
+		
 		checkHorizontal = new JCheckBox("Propiedad horizontal");
 		checkHorizontal.setFont(new Font("Arial", Font.PLAIN, 14));
 		checkHorizontal.setBounds(25, 390, 161, 21);
@@ -355,9 +368,21 @@ public class PanelAltaInmueble extends JPanel{
 		textArea.setBounds(514, 509, 594, 75);
 		panel.add(textArea);
 		
+		
+		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnCancelar.setBounds(1129, 664, 85, 21);
+		btnCancelar.addActionListener(l -> {	
+			login.setMinimumSize(new Dimension(670, 340));
+			login.setLocation(300, 70);
+			login.setTitle("Inicio vendedor");
+			login.setContentPane(new PanelInicioVendedor(login));
+			login.pack();
+			login.revalidate();
+			login.repaint();
+		
+		});
 		add(btnCancelar);
 		
 		JButton btnGuardar = new JButton("Guardar");
@@ -406,6 +431,4 @@ public class PanelAltaInmueble extends JPanel{
 		add(btnGuardar);
 
 	}
-	
-	
 }

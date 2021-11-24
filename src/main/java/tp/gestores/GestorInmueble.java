@@ -80,4 +80,8 @@ public class GestorInmueble {
 	public void ordenarInmuebles(List<Inmueble> inmuebles) {
 	
 	}
+	
+	public void eliminarInmueble(Inmueble inmueble){
+		daoInmueble.eliminarInmueble(inmueble);
+	}
 }

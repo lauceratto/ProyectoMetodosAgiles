@@ -6,10 +6,42 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
 public class Cliente implements Serializable {
+	
+	
+	
+/*
+ *  Hasta la iteración 2 donde se realiza la historia 2 no se utilizará este metodo
+	public Cliente(String nombre, String apellido, String telefono, Integer dni, Inmueble inmueble, Integer minimo, Integer maximo) {
+		Cliente cliente = new Cliente();
+		cliente.montoMinimo = minimo;
+		cliente.montoMaximo = maximo;
+		cliente.nombre = nombre;
+		cliente.apellido = apellido;
+		cliente.dni = dni;
+		cliente.inmueble = inmueble;
+		cliente.telefono = telefono;
+	}
+*/	
+	public Cliente(String nombre, String apellido, String telefono, Integer dni, Float montoMinimo, Float montoMaximo) {
+		Cliente cliente = new Cliente();
+		cliente.nombre = nombre;
+		cliente.apellido = apellido;
+		cliente.dni = dni;
+		cliente.telefono = telefono;
+		cliente.montoMinimo = montoMinimo;
+		cliente.montoMaximo = montoMaximo;
+	}
+	
+	
+	public Cliente() {
+		// TODO Auto-generated constructor stub
+	}
 
 	private static final long serialVersionUID = 1L;
 
@@ -18,13 +50,41 @@ public class Cliente implements Serializable {
 	private String apellido;
 	private String telefono;
 
-	public Integer getDni() {
-		return dni;
+
+	private Inmueble inmueble;
+
+	private Float montoMinimo;
+
+	private float montoMaximo;
+
+	
+	
+	public Float getMontoMinimo() {
+		return montoMinimo;
 	}
 
-	public void setDni(Integer dni) {
-		this.dni = dni;
+	public void setMontoMinimo(Float montoMinimo) {
+		this.montoMinimo = montoMinimo;
 	}
+
+	public Float getMontoMaximo() {
+		return montoMaximo;
+	}
+
+	public void setMontoMaximo(Float montoMaximo) {
+		this.montoMaximo = montoMaximo;
+	}
+
+
+
+	public Inmueble getInmueble() {
+		return inmueble;
+	}
+
+	public void setInmueble(Inmueble inmueble) {
+		this.inmueble = inmueble;
+	}
+
 
 	public String getNombre() {
 		return nombre;
@@ -50,7 +110,15 @@ public class Cliente implements Serializable {
 		this.telefono = telefono;
 	}
 
-//	tipo de inmueble, localidad, barrio, características, y monto disponible.
+
+	public Integer getDni() {
+		return dni;
+	}
+
+	public void setDni(Integer dni) {
+		this.dni = dni;
+	}
+
 	
 	
 }
