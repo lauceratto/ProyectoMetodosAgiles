@@ -92,6 +92,15 @@ public class PanelInicioVendedor extends JPanel {
 		
 		JButton btnListaClientes = new JButton("Lista Clientes");
 		btnListaClientes.setBounds(70, 38, 125, 23);
+		btnListaClientes.addActionListener(l -> {
+			login.setMinimumSize(new Dimension(800, 600));
+			login.setLocation(300, 70);
+			login.setTitle("Lista de Clientes");
+			login.setContentPane(new PanelListaCliente(login));
+			login.pack();
+			login.revalidate();
+			login.repaint();
+		});
 		panel_2.add(btnListaClientes);
 	}
 }

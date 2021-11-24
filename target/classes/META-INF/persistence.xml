@@ -4,14 +4,13 @@
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
   <persistence-unit name="Persistencia">
-  
-
+  <!-- 
   	<class>tp.dominio.Propietario</class>
  	<class>tp.dominio.Cliente</class>
  	<class>tp.dominio.Inmueble</class>
   	<class>tp.dominio.Reserva</class>
   	<class>tp.dominio.GenerarVenta</class>
-  	
+  	-->
     <properties>
         <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
         <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/postgres?searchpath=MetodosAgiles" />

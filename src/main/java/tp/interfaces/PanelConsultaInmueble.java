@@ -8,10 +8,16 @@ import javax.swing.JLabel;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+
+import tp.gestores.GestorInmueble;
+import tp.dominio.Inmueble;
+
 import javax.swing.JTextField;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
@@ -22,10 +28,12 @@ public class PanelConsultaInmueble extends JFrame {
 	private JTextField textFieldBarrio;
 	private JTextField textFieldPrecioMax;
 	private JTextField textFieldPrecioMin;
-	JComboBox<String> comboBoxProvincia = new JComboBox<String>();
-	JComboBox<String> comboBoxLocalidad = new JComboBox<String>();
-	JComboBox<String> comboBoxTipoInmueble = new JComboBox<String>();
-	JComboBox<String> comboBoxOrdenar = new JComboBox<String>();
+	private JComboBox<String> comboBoxProvincia = new JComboBox<String>();
+	private JComboBox<String> comboBoxLocalidad = new JComboBox<String>();
+	private JComboBox<String> comboBoxTipoInmueble = new JComboBox<String>();
+	private JComboBox<String> comboBoxOrdenar = new JComboBox<String>();
+	private GestorInmueble gestorInmueble = new GestorInmueble();
+	private List<Inmueble> inmuebles = new ArrayList<Inmueble>();
 	
 	public PanelConsultaInmueble() {
 		setMinimumSize(new Dimension(720, 400));
@@ -34,15 +42,15 @@ public class PanelConsultaInmueble extends JFrame {
 		setTitle("Consulta Inmueble");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PanelInicioVendedor.class.getResource("/tp/icons/Icon.png")));
 		
-		comboBoxOrdenar.setFont(new Font("Arial", Font.PLAIN, 12));
-		comboBoxOrdenar.setModel(new DefaultComboBoxModel<String>(new String[] {"-Seleccionar-", "Valoracion", "Precio (Mayor a menor)", "Precio (Menor a mayor)", "Lo m\u00E1s nuevo"}));
-		comboBoxOrdenar.setBounds(546, 75, 141, 22);
-		getContentPane().add(comboBoxOrdenar);
-		
-		JLabel lblNewLabel = new JLabel("Ordenar por");
-		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel.setBounds(546, 57, 107, 14);
-		getContentPane().add(lblNewLabel);
+//		comboBoxOrdenar.setFont(new Font("Arial", Font.PLAIN, 12));
+//		comboBoxOrdenar.setModel(new DefaultComboBoxModel<String>(new String[] {"-Seleccionar-", "Valoracion", "Precio (Mayor a menor)", "Precio (Menor a mayor)", "Lo m\u00E1s nuevo"}));
+//		comboBoxOrdenar.setBounds(526, 75, 161, 22);
+//		getContentPane().add(comboBoxOrdenar);
+//		
+//		JLabel lblNewLabel = new JLabel("Ordenar por");
+//		lblNewLabel.setFont(new Font("Arial", Font.PLAIN, 14));
+//		lblNewLabel.setBounds(526, 57, 107, 14);
+//		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Consulta Inmueble");
 		lblNewLabel_1.setFont(new Font("Arial", Font.BOLD, 20));
@@ -102,9 +110,9 @@ public class PanelConsultaInmueble extends JFrame {
 		lblNewLabel_2_1_1.setBounds(10, 120, 138, 14);
 		panel.add(lblNewLabel_2_1_1);
 		
-		JSpinner spinner = new JSpinner();
-		spinner.setBounds(144, 118, 44, 20);
-		panel.add(spinner);
+		JSpinner spinnerDorm = new JSpinner();
+		spinnerDorm.setBounds(144, 118, 44, 20);
+		panel.add(spinnerDorm);
 		
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("Precio (m\u00E1x)");
 		lblNewLabel_2_1_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -129,6 +137,19 @@ public class PanelConsultaInmueble extends JFrame {
 		JButton btnNewButton = new JButton("Buscar");
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 12));
 		btnNewButton.setBounds(532, 153, 97, 22);
+		btnNewButton.addActionListener(l -> {
+			String barrio = textFieldBarrio.getText();
+			String precioMax = textFieldPrecioMax.getText();
+			String precioMin = textFieldPrecioMin.getText();
+			Integer dormitorios = (Integer)spinnerDorm.getValue();	
+			String provincia = comboBoxProvincia.getSelectedItem().toString();
+			String localidad = comboBoxLocalidad.getSelectedItem().toString();
+			String tipoInmueble = comboBoxTipoInmueble.getSelectedItem().toString();
+						
+			inmuebles = gestorInmueble.buscarInmueble(barrio, precioMax, precioMin, dormitorios, provincia, localidad, tipoInmueble);
+			
+			gestorInmueble.ordenarInmuebles(inmuebles);
+		});
 		panel.add(btnNewButton);
 		
 		
