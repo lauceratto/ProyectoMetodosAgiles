@@ -13,6 +13,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -238,6 +240,9 @@ public class PanelGenerarReserva extends JPanel {
 				Reserva reserva = new Reserva(inmueble, cliente, comboBox.getSelectedIndex(), Float.parseFloat(txtValorsea.getText())); 
 				gestorReserva.crearReserva(reserva);
 			}
+			
+			String correo = "Se le ha enviado un email a su correo a lisandroPerez@gmail.com";
+			JOptionPane.showMessageDialog(null, correo);
 		});
 		
 	}
