@@ -1,5 +1,7 @@
 package tp.gestores;
 
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 import tp.dao.DAOInmueble;
@@ -67,5 +69,19 @@ public class GestorInmueble {
 		Inmueble inmueble = this.getById(idInmueble);
 
 		daoInmueble.modificarInmueble(inmueble);
+	}
+
+	public List<Inmueble> buscarInmueble(String barrio, String precioMax, String precioMin, Integer dormitorios,
+			String provincia, String localidad, String tipoInmueble) {
+		
+		return daoInmueble.buscarInmuebles(barrio,precioMax, precioMin, dormitorios, provincia, localidad, tipoInmueble);
+	}
+
+	public void ordenarInmuebles(List<Inmueble> inmuebles) {
+	
+	}
+	
+	public void eliminarInmueble(Inmueble inmueble){
+		daoInmueble.eliminarInmueble(inmueble);
 	}
 }

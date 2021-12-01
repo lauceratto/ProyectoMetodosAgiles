@@ -7,15 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "Propietario")
+
+
 public class Propietario implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String nombre;
 	private String apellido;
 	private String email;
-	private String tipoDoc;
 	private Integer dni;
 	private String telefono;
 	private String calle;
@@ -29,13 +28,12 @@ public class Propietario implements Serializable{
 	public Propietario() {
 	}
 	
-	public Propietario(String nombre, String apellido, String email, String tipoDoc, Integer dNI, String telefono,
+	public Propietario(String nombre, String apellido, String email,Integer dNI, String telefono,
 			String calle, Integer nro, String depto, String piso, String provincia, String localidad) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
-		this.tipoDoc = tipoDoc;
 		this.dni = dNI;
 		this.telefono = telefono;
 		this.calle = calle;
@@ -73,13 +71,6 @@ public class Propietario implements Serializable{
 		this.email = email;
 	}
 
-	public String getTipoDoc() {
-		return tipoDoc;
-	}
-
-	public void setTipoDoc(String tipoDoc) {
-		this.tipoDoc = tipoDoc;
-	}
 
 	public Integer getDni() {
 		return dni;
