@@ -27,6 +27,8 @@ public class PanelGenerarReserva extends JPanel {
 	
 	public PanelGenerarReserva(Inmueble inmueble, Cliente cliente) {
 		
+	
+		
 		setLayout(null);
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Generar reserva", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -84,47 +86,47 @@ public class PanelGenerarReserva extends JPanel {
 		lblDatosDelInmueble.setBounds(49, 21, 135, 25);
 		panel.add(lblDatosDelInmueble);
 		
-		JLabel lblDatoDelInmueble = new JLabel("Dato del inmueble");
+		JLabel lblDatoDelInmueble = new JLabel("Casa");
 		lblDatoDelInmueble.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblDatoDelInmueble.setBounds(174, 65, 115, 25);
 		panel.add(lblDatoDelInmueble);
 		
-		JLabel lblUnaprovincia = new JLabel("Unaprovincia");
+		JLabel lblUnaprovincia = new JLabel("Santa Fe");
 		lblUnaprovincia.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblUnaprovincia.setBounds(173, 101, 90, 25);
 		panel.add(lblUnaprovincia);
 		
-		JLabel lblUnalocalidad = new JLabel("unalocalidad");
+		JLabel lblUnalocalidad = new JLabel("Santa Fe");
 		lblUnalocalidad.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblUnalocalidad.setBounds(174, 137, 90, 25);
 		panel.add(lblUnalocalidad);
 		
-		JLabel lblNombreYApellido = new JLabel("Nombre y apellido prop");
+		JLabel lblNombreYApellido = new JLabel("Martin Guzmán");
 		lblNombreYApellido.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNombreYApellido.setBounds(509, 65, 157, 25);
 		panel.add(lblNombreYApellido);
 		
-		JLabel lblNumerocalle = new JLabel("nombrecalle");
+		JLabel lblNumerocalle = new JLabel("Sarmiento");
 		lblNumerocalle.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNumerocalle.setBounds(508, 101, 90, 25);
 		panel.add(lblNumerocalle);
 		
-		JLabel lblBarrioinm = new JLabel("barrioinm");
+		JLabel lblBarrioinm = new JLabel("Candiotti");
 		lblBarrioinm.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblBarrioinm.setBounds(508, 137, 90, 25);
 		panel.add(lblBarrioinm);
 		
-		JLabel lblNumeroinmueble = new JLabel("numeroinmueble");
+		JLabel lblNumeroinmueble = new JLabel("3050");
 		lblNumeroinmueble.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNumeroinmueble.setBounds(733, 101, 112, 25);
 		panel.add(lblNumeroinmueble);
 		
-		JLabel lblNumerooguion = new JLabel("numeroOguion");
+		JLabel lblNumerooguion = new JLabel("-");
 		lblNumerooguion.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNumerooguion.setBounds(733, 137, 101, 25);
 		panel.add(lblNumerooguion);
 		
-		JLabel lblValorventa = new JLabel("VALORVENTA");
+		JLabel lblValorventa = new JLabel("3000000");
 		lblValorventa.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblValorventa.setBounds(174, 187, 115, 25);
 		panel.add(lblValorventa);
@@ -144,7 +146,7 @@ public class PanelGenerarReserva extends JPanel {
 		lblNombre.setBounds(49, 309, 115, 25);
 		panel.add(lblNombre);
 		
-		JLabel lblNombrecliente = new JLabel("nombrecliente");
+		JLabel lblNombrecliente = new JLabel("Lisandro");
 		lblNombrecliente.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNombrecliente.setBounds(174, 309, 115, 25);
 		panel.add(lblNombrecliente);
@@ -154,7 +156,7 @@ public class PanelGenerarReserva extends JPanel {
 		lblApellido.setBounds(49, 352, 115, 25);
 		panel.add(lblApellido);
 		
-		JLabel lblApellidocliente = new JLabel("apellidoCliente");
+		JLabel lblApellidocliente = new JLabel("Perez");
 		lblApellidocliente.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblApellidocliente.setBounds(174, 352, 115, 25);
 		panel.add(lblApellidocliente);
@@ -164,12 +166,12 @@ public class PanelGenerarReserva extends JPanel {
 		lblDni.setBounds(450, 309, 115, 25);
 		panel.add(lblDni);
 		
-		JLabel lblUnnrodni = new JLabel("unNroDni");
+		JLabel lblUnnrodni = new JLabel("10531447");
 		lblUnnrodni.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblUnnrodni.setBounds(575, 309, 115, 25);
 		panel.add(lblUnnrodni);
 		
-		JLabel lblNrotelefono = new JLabel("nroTelefono");
+		JLabel lblNrotelefono = new JLabel("4557059");
 		lblNrotelefono.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblNrotelefono.setBounds(575, 352, 115, 25);
 		panel.add(lblNrotelefono);
@@ -190,11 +192,12 @@ public class PanelGenerarReserva extends JPanel {
 		panel.add(lblTiempoDeVigencia);
 		
 		txtValorsea = new JTextField();
-		txtValorsea.setText("Valorse\u00F1a");
+		txtValorsea.setText("0");
 		txtValorsea.setEditable(false);
 		txtValorsea.setBounds(635, 450, 115, 20);
 		panel.add(txtValorsea);
 		txtValorsea.setColumns(10);
+//		txtValorsea.setText("30000");
 		
 		JLabel lblImporteDeReserva = new JLabel("Importe de reserva:");
 		lblImporteDeReserva.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -229,14 +232,14 @@ public class PanelGenerarReserva extends JPanel {
 		});
 		*/
 		comboBox.addActionListener(l -> {
-			Double valor = gestorReserva.tiempoVigencia(comboBox.getSelectedIndex(), inmueble.getPrecio());
+			Double valor = gestorReserva.importeSegunTiempoVigencia(comboBox.getSelectedIndex(), inmueble.getPrecio());
 			txtValorsea.setText(valor.toString());
 		});
 		
 		btnConfirmar.addActionListener(e -> {
 			//verifico que se seleccione una fecha de vigencia en la reserva
 			if(gestorReserva.validarCampos(comboBox.getSelectedIndex())) {
-				txtValorsea.setText("30000");
+				
 				Reserva reserva = new Reserva(inmueble, cliente, comboBox.getSelectedIndex(), Float.parseFloat(txtValorsea.getText())); 
 				gestorReserva.crearReserva(reserva);
 				String correo = "Se le ha enviado un email a su correo a lisandroPerez@gmail.com";

@@ -103,7 +103,7 @@ public class PanelDocumentoReserva extends JFrame {
 	lblUnalocalidad.setBounds(174, 137, 90, 25);
 	panel.add(lblUnalocalidad);
 	
-	JLabel lblNombreYApellido = new JLabel("Lisandro Perez");
+	JLabel lblNombreYApellido = new JLabel("Martin Guzm\u00E1n");
 	lblNombreYApellido.setFont(new Font("Arial", Font.PLAIN, 14));
 	lblNombreYApellido.setBounds(509, 65, 157, 25);
 	panel.add(lblNombreYApellido);

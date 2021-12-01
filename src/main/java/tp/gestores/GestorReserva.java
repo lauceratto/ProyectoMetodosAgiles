@@ -23,7 +23,7 @@ public class GestorReserva {
 		daoReserva.guardarReserva(reserv);
 	}
 
-	public double tiempoVigencia(Integer dia, double valorInmueble) {
+	public double importeSegunTiempoVigencia(Integer dia, double valorInmueble) {
 		//index = 0 ->elige valor 5
 		if(dia == 0) {
 			return valorInmueble*3/100;
