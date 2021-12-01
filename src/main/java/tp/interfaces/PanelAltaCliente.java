@@ -15,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class PanelAltaCliente extends JFrame{
+public class PanelAltaCliente extends JPanel{
 	/**
 	 * 
 	 */

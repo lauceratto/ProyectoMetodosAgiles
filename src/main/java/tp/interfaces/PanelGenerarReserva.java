@@ -25,12 +25,12 @@ public class PanelGenerarReserva extends JPanel {
 	private GestorReserva gestorReserva = new GestorReserva();
 	private JTextField txtValorsea;
 	
-	public PanelGenerarReserva(PanelConsultaInmueble panelConsultaInmueble, Inmueble inmueble, Cliente cliente) {
+	public PanelGenerarReserva(Inmueble inmueble, Cliente cliente) {
 		
 		setLayout(null);
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Generar reserva", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(50, 21, 855, 594);
+		panel.setBounds(50, 21, 1000, 800);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -216,7 +216,7 @@ public class PanelGenerarReserva extends JPanel {
 		comboBox.setBounds(243, 449, 115, 22);
 		panel.add(comboBox);
 		
-		
+		/*
 		btnCancelar.addActionListener(l -> {	
 		panelConsultaInmueble.setMinimumSize(new Dimension(670, 340));
 		panelConsultaInmueble.setLocation(300, 70);
@@ -227,7 +227,7 @@ public class PanelGenerarReserva extends JPanel {
 		panelConsultaInmueble.repaint();
 		
 		});
-		
+		*/
 		comboBox.addActionListener(l -> {
 			Double valor = gestorReserva.tiempoVigencia(comboBox.getSelectedIndex(), inmueble.getPrecio());
 			txtValorsea.setText(valor.toString());
@@ -236,14 +236,20 @@ public class PanelGenerarReserva extends JPanel {
 		btnConfirmar.addActionListener(e -> {
 			//verifico que se seleccione una fecha de vigencia en la reserva
 			if(gestorReserva.validarCampos(comboBox.getSelectedIndex())) {
-			
+				txtValorsea.setText("30000");
 				Reserva reserva = new Reserva(inmueble, cliente, comboBox.getSelectedIndex(), Float.parseFloat(txtValorsea.getText())); 
 				gestorReserva.crearReserva(reserva);
+				String correo = "Se le ha enviado un email a su correo a lisandroPerez@gmail.com";
+				JOptionPane.showMessageDialog(null, correo);
+				PanelDocumentoReserva nuevo = new PanelDocumentoReserva(reserva);
+				nuevo.setVisible(true);
 			}
-			
-			String correo = "Se le ha enviado un email a su correo a lisandroPerez@gmail.com";
-			JOptionPane.showMessageDialog(null, correo);
 		});
 		
 	}
 }
+
+
+
+
+

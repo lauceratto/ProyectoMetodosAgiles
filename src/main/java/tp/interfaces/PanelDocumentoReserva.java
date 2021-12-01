@@ -27,14 +27,14 @@ public class PanelDocumentoReserva extends JFrame {
 
 	public PanelDocumentoReserva(Reserva reserva) {
 	
-	setMinimumSize(new Dimension(720, 400));
+	setMinimumSize(new Dimension(1000, 700));
 	setLocation(300, 70);
 	getContentPane().setLayout(null);
 	setTitle("Reserva de inmueble");
 	
 	JPanel panel = new JPanel();
 	panel.setBorder(new TitledBorder(null, "Documento de reserva de inmueble", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-	panel.setBounds(45, 74, 840, 587);
+	panel.setBounds(45, 74, 859, 599);
 	getContentPane().add(panel);
 	panel.setLayout(null);
 	
@@ -103,7 +103,7 @@ public class PanelDocumentoReserva extends JFrame {
 	lblUnalocalidad.setBounds(174, 137, 90, 25);
 	panel.add(lblUnalocalidad);
 	
-	JLabel lblNombreYApellido = new JLabel("Nombre y apellido prop");
+	JLabel lblNombreYApellido = new JLabel("Lisandro Perez");
 	lblNombreYApellido.setFont(new Font("Arial", Font.PLAIN, 14));
 	lblNombreYApellido.setBounds(509, 65, 157, 25);
 	panel.add(lblNombreYApellido);
@@ -214,12 +214,12 @@ public class PanelDocumentoReserva extends JFrame {
 	
 //	JLabel comboBox = new JLabel(reserva.getFechaVigencia().toString());
 	JLabel comboBox = new JLabel("5");
-	comboBox.setBounds(243, 449, 115, 22);
+	comboBox.setBounds(225, 449, 115, 22);
 	panel.add(comboBox);
 	
 	
 	btnCancelar.addActionListener(l -> {	
-			System.exit( 0 );
+			panel.setVisible(false);
 	});
 	
 	
