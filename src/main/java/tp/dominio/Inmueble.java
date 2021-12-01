@@ -71,20 +71,16 @@ public class Inmueble implements Serializable{
 	
 	private String observaciones;
 	
-	@Column(name = "fechaDeCarga")
 	private LocalDate fechaDeCarga;
 	
-	@Column(name = "estado")
-	private Boolean estado;
-	
-	
+	private EstadoInmueble estado;
 
 	public Inmueble(Propietario propietario, String provincia, String localidad, String calle, String numero,
 			String piso, String barrio, String tipo, Double precio, String orientacion, Double longFrente,
 			Double longFondo, Double superficie, Integer antiguedad, Integer dormitorios, Boolean horizontal,
 			Boolean garaje, Boolean patio, Boolean piscina, Boolean aguaCorriente, Boolean gas, Boolean telefono,
 			Boolean lavadero, Boolean pavimento, Boolean cloaca, Boolean aguaCaliente, String observaciones,
-			LocalDate fechaDeCarga, Boolean estado) {
+			LocalDate fechaDeCarga, EstadoInmueble estado) {
 		super();
 		this.propietario = propietario;
 		this.provincia = provincia;
@@ -353,11 +349,11 @@ public class Inmueble implements Serializable{
 		this.fechaDeCarga = fechaDeCarga;
 	}
 
-	public Boolean getEstado() {
+	public EstadoInmueble getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setEstado(EstadoInmueble estado) {
 		this.estado = estado;
 	}
 
