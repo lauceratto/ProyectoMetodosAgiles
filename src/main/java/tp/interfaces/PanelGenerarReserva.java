@@ -4,10 +4,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
+import tp.dominio.Cliente;
+import tp.dominio.Inmueble;
+import tp.dominio.Reserva;
 import tp.gestores.GestorReserva;
 
 import java.awt.Color;
-import java.awt.Rectangle;
+import java.awt.Dimension;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -20,7 +23,7 @@ public class PanelGenerarReserva extends JPanel {
 	private GestorReserva gestorReserva = new GestorReserva();
 	private JTextField txtValorsea;
 	
-	public PanelGenerarReserva() {
+	public PanelGenerarReserva(PanelConsultaInmueble panelConsultaInmueble, Inmueble inmueble, Cliente cliente) {
 		
 		setLayout(null);
 		JPanel panel = new JPanel();
@@ -212,7 +215,30 @@ public class PanelGenerarReserva extends JPanel {
 		panel.add(comboBox);
 		
 		
+		btnCancelar.addActionListener(l -> {	
+		panelConsultaInmueble.setMinimumSize(new Dimension(670, 340));
+		panelConsultaInmueble.setLocation(300, 70);
+		panelConsultaInmueble.setTitle("Consulta inmueble");
+		panelConsultaInmueble.setContentPane(new PanelConsultaInmueble());
+		panelConsultaInmueble.pack();
+		panelConsultaInmueble.revalidate();
+		panelConsultaInmueble.repaint();
 		
+		});
+		
+		comboBox.addActionListener(l -> {
+			Double valor = gestorReserva.tiempoVigencia(comboBox.getSelectedIndex(), inmueble.getPrecio());
+			txtValorsea.setText(valor.toString());
+		});
+		
+		btnConfirmar.addActionListener(e -> {
+			//verifico que se seleccione una fecha de vigencia en la reserva
+			if(gestorReserva.validarCampos(comboBox.getSelectedIndex())) {
+			
+				Reserva reserva = new Reserva(inmueble, cliente, comboBox.getSelectedIndex(), Float.parseFloat(txtValorsea.getText())); 
+				gestorReserva.crearReserva(reserva);
+			}
+		});
 		
 	}
 }
