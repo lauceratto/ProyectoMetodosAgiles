@@ -9,6 +9,9 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+import tp.dominio.Cliente;
+import tp.dominio.Inmueble;
+
 import javax.swing.JButton;
 
 

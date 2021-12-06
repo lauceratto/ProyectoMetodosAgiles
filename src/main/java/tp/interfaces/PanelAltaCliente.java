@@ -15,7 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-public class PanelAltaCliente extends JFrame{
+
+public class PanelAltaCliente extends JPanel{
 	/**
 	 * 
 	 */
@@ -38,12 +39,12 @@ public class PanelAltaCliente extends JFrame{
 		
 		
 		
-		getContentPane().setLayout(null);
+		setLayout(null);
 		panel = new JPanel();
 		panel.setBounds(new Rectangle(71, 60, 750, 451));
 		panel.setBorder(new TitledBorder(null, "Alta Cliente", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 		panel.setBounds(71, 60, 750, 437);
-		getContentPane().add(panel);
+		add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Nombre (*)");
@@ -120,10 +121,15 @@ public class PanelAltaCliente extends JFrame{
 				String apellido = this.textApellido.getText();
 				String telefono = this.textTelefono.getText();
 				Integer dni = Integer.valueOf(this.textDNI.getText());
+
 				Double minimo = Double.valueOf(this.textMinimo.getText());
 				Double maximo = Double.valueOf(this.textMaximo.getText());
 
 				Cliente cliente = new Cliente(nombre, apellido, telefono, dni, minimo, maximo);
+
+	//			Se deja para la siguiente iteración
+		//		Cliente cliente = new Cliente(nombre, apellido, telefono, dni, montoMinimo, montoMaximo);
+
 	//			Cliente cliente = new Cliente(nombre, apellido, telefono, dni, inmueble, montoMinimo, montoMaximo);
 				
 				if(gestorCliente.validarCampos(cliente).equals(false)) {
