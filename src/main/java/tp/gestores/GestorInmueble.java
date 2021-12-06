@@ -84,4 +84,14 @@ public class GestorInmueble {
 	public void eliminarInmueble(Inmueble inmueble){
 		daoInmueble.eliminarInmueble(inmueble);
 	}
+	
+	public Boolean verificarLongitudCampos(Inmueble inmueble) {
+		
+		if(inmueble.getNumero().length() > 15 || inmueble.getPiso().length() > 15 ) {
+			return false;
+		}
+		
+		return true;
+		
+	}
 }
