@@ -25,7 +25,7 @@ public class PanelListaPropietario extends JPanel {
 		add(lblNewLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(81, 100, 599, 292);
+		scrollPane.setBounds(158, 98, 649, 293);
 		add(scrollPane);
 		
 		modeloTabla = new PropietarioTableModel();

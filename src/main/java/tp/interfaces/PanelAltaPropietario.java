@@ -128,8 +128,8 @@ public class PanelAltaPropietario extends JPanel {
 		panelDireccion.add(lblProvincia);
 		
 		JComboBox comboProvincia = new JComboBox();
-		comboProvincia.setModel(new DefaultComboBoxModel(new String[] {"Buenos Aires", "Capital Federal", "Catamarca", "Chaco", "Chubut", "C\u00F3rdoba", "Corrientes", "Entre R\u00EDos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuqu\u00E9n", "R\u00EDo Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucum\u00E1n"}));
-		comboProvincia.setSelectedIndex(20);
+		comboProvincia.setModel(new DefaultComboBoxModel(new String[] {"Seleccionar", "Buenos Aires", "Capital Federal", "Catamarca", "Chaco", "Chubut", "C\u00F3rdoba", "Corrientes", "Entre R\u00EDos", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuqu\u00E9n", "R\u00EDo Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucum\u00E1n"}));
+		comboProvincia.setSelectedIndex(0);
 		comboProvincia.setBounds(111, 45, 162, 22);
 		panelDireccion.add(comboProvincia);
 		
@@ -138,7 +138,8 @@ public class PanelAltaPropietario extends JPanel {
 		panelDireccion.add(lblLocalidad);
 		
 		JComboBox comboLocalidad = new JComboBox();
-		comboLocalidad.setModel(new DefaultComboBoxModel(new String[] {"Santa Fe", "Santo Tom\u00E9", "Sauce Viejo", "Rinc\u00F3n", "Colastin\u00E9 Norte", "Colastin\u00E9 Sur"}));
+		comboLocalidad.setModel(new DefaultComboBoxModel(new String[] {"Seleccionar", "Santa Fe", "Santo Tom\u00E9", "Sauce Viejo", "Rinc\u00F3n", "Colastin\u00E9 Norte", "Colastin\u00E9 Sur"}));
+		comboLocalidad.setSelectedIndex(0);
 		comboLocalidad.setBounds(380, 45, 227, 22);
 		panelDireccion.add(comboLocalidad);
 		

@@ -125,8 +125,8 @@ public class PanelModificacionCliente extends JPanel{
 				String apellido = this.textMatiasApellido.getText();
 				String telefono = this.textMatiasTelefono.getText();
 				Integer dni = Integer.valueOf(this.textMatiasDNI.getText());
-				Float minimo = Float.valueOf(this.textMatiasMinimo.getText());
-				Float maximo = Float.valueOf(this.textMatiasMaximo.getText());
+				Double minimo = Double.valueOf(this.textMatiasMinimo.getText());
+				Double maximo = Double.valueOf(this.textMatiasMaximo.getText());
 				
 				Cliente cliente = new Cliente(nombre, apellido, telefono, dni, minimo, maximo);
 				if(gestorCliente.validarCampos(cliente).equals(false)) {

@@ -67,7 +67,7 @@ public class PanelInicioVendedor extends JPanel {
 		btnAltaPropietario.addActionListener(l -> {
 			login.setMinimumSize(new Dimension(900, 620));
 			login.setLocation(300, 70);
-			login.setTitle("Modificar vendedor");
+			login.setTitle("Alta propietario");
 			login.setContentPane(new PanelAltaPropietario(login));
 			login.pack();
 			login.revalidate();
@@ -81,7 +81,7 @@ public class PanelInicioVendedor extends JPanel {
 		btnModificarPropietario.addActionListener(l -> {
 			login.setMinimumSize(new Dimension(900, 620));
 			login.setLocation(300, 70);
-			login.setTitle("Modificar vendedor");
+			login.setTitle("Lista de propietarios");
 			login.setContentPane(new PanelListaPropietario(login));
 			login.pack();
 			login.revalidate();
@@ -113,7 +113,7 @@ public class PanelInicioVendedor extends JPanel {
 		JButton btnModificarInmueble = new JButton("Lista Inmuebles");
 		btnModificarInmueble.setBounds(191, 39, 131, 23);
 		btnModificarInmueble.addActionListener(l -> {
-			login.setMinimumSize(new Dimension(900, 620));
+			login.setMinimumSize(new Dimension(600, 420));
 			login.setLocation(300, 70);
 			login.setTitle("Lista de inmuebles");
 			login.setContentPane(new PanelListaInmueble(login));

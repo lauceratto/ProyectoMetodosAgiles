@@ -28,7 +28,7 @@ public class Cliente implements Serializable {
 		cliente.telefono = telefono;
 	}
 */	
-	public Cliente(String nombre, String apellido, String telefono, Integer dni, Float montoMinimo, Float montoMaximo) {
+	public Cliente(String nombre, String apellido, String telefono, Integer dni, Double montoMinimo, Double montoMaximo) {
 		Cliente cliente = new Cliente();
 		cliente.nombre = nombre;
 		cliente.apellido = apellido;
@@ -53,25 +53,25 @@ public class Cliente implements Serializable {
 
 	private Inmueble inmueble;
 
-	private Float montoMinimo;
+	private Double montoMinimo;
 
-	private float montoMaximo;
+	private Double montoMaximo;
 
 	
 	
-	public Float getMontoMinimo() {
+	public Double getMontoMinimo() {
 		return montoMinimo;
 	}
 
-	public void setMontoMinimo(Float montoMinimo) {
+	public void setMontoMinimo(Double montoMinimo) {
 		this.montoMinimo = montoMinimo;
 	}
 
-	public Float getMontoMaximo() {
+	public Double getMontoMaximo() {
 		return montoMaximo;
 	}
 
-	public void setMontoMaximo(Float montoMaximo) {
+	public void setMontoMaximo(Double montoMaximo) {
 		this.montoMaximo = montoMaximo;
 	}
 

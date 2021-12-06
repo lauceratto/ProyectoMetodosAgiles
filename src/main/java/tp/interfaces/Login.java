@@ -62,8 +62,8 @@ public class Login extends JFrame {
 		});
 		getContentPane().add(btnNewButton);
 		
-		JButton btnCancelar = new JButton("Registrarse");
-		btnCancelar.setBounds(81, 254, 115, 23);
+		JButton btnCancelar = new JButton("Registrar vendedor");
+		btnCancelar.setBounds(62, 243, 148, 23);
 		btnCancelar.addActionListener(l -> {
 			this.setMinimumSize(new Dimension(900, 620));
 			this.setLocation(300, 70);
