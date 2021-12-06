@@ -88,7 +88,7 @@ public class PanelDocumentoReserva extends JFrame {
 	lblDatosDelInmueble.setBounds(49, 21, 135, 25);
 	panel.add(lblDatosDelInmueble);
 	
-	JLabel lblDatoDelInmueble = new JLabel("VER");
+	JLabel lblDatoDelInmueble = new JLabel("Casa");
 	lblDatoDelInmueble.setFont(new Font("Arial", Font.PLAIN, 14));
 	lblDatoDelInmueble.setBounds(174, 65, 115, 25);
 	panel.add(lblDatoDelInmueble);
