@@ -15,6 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+
 public class PanelAltaCliente extends JPanel{
 	/**
 	 * 
@@ -92,7 +93,7 @@ public class PanelAltaCliente extends JPanel{
 				String apellido = this.textApellido.getText();
 				String telefono = this.textTelefono.getText();
 				Integer dni = Integer.valueOf(this.textDNI.getText());
-	//			Se deja para la siguiente iteración
+	//			Se deja para la siguiente iteraciÃ³n
 				Cliente cliente = new Cliente(nombre, apellido, telefono, dni, montoMinimo, montoMaximo);
 	//			Cliente cliente = new Cliente(nombre, apellido, telefono, dni, inmueble, montoMinimo, montoMaximo);
 				

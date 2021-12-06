@@ -1,5 +1,7 @@
 Manifest-Version: 1.0
-Built-By: Juandi
-Build-Jdk: 11.0.12
+
+Built-By: lauta
+Build-Jdk: 14.0.2
+
 Created-By: Maven Integration for Eclipse
 
