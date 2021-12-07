@@ -9,11 +9,13 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import tp.App.AppVendedor;
+import tp.dominio.EstadoInmueble;
 import tp.dominio.Inmueble;
 import tp.dominio.Propietario;
 import tp.gestores.GestorInmueble;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.border.EtchedBorder;
 import java.awt.Font;
 import javax.swing.JComboBox;
@@ -66,7 +68,7 @@ public class PanelAltaInmueble extends JPanel{
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Alta Imueble", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(47, 46, 1167, 608);
+		panel.setBounds(47, 52, 1167, 608);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -421,9 +423,13 @@ public class PanelAltaInmueble extends JPanel{
 			
 			Inmueble inmueble = new Inmueble(prop, provincia, localidad, calle, numero, piso, barrio, tipo, precio, orientacion, longFrente,
 						                     longFondo, superficie, antiguedad, dormitorios, horizontal, garaje, patio, piscina, aguaCorriente,
-						                     gas, telefono, lavadero, pavimento, cloaca, aguaCaliente, observaciones, LocalDate.now(), true);
+						                     gas, telefono, lavadero, pavimento, cloaca, aguaCaliente, observaciones, LocalDate.now(), EstadoInmueble.DISPONIBLE);
 			
-			if(gestorInmueble.validarCampos(inmueble)) {
+			if(!gestorInmueble.validarCampos(inmueble)) {
+				JOptionPane.showConfirmDialog( null, "Los campos obligatorios no pueden ser vacíos");
+			}else if(!gestorInmueble.verificarLongitudCampos(inmueble)) {
+				JOptionPane.showConfirmDialog( null, "Los campos de texto no pueden tener más de 15 caracteres");
+			}else {
 				gestorInmueble.crearInmueble(inmueble);
 			}
 		});

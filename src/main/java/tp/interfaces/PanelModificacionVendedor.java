@@ -33,7 +33,7 @@ public class PanelModificacionVendedor extends JPanel {
 	
 	public PanelModificacionVendedor(Login login) {
 		setLayout(null);
-	
+		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Modificación Vendedor", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
 		panel.setBounds(71, 60, 750, 437);
