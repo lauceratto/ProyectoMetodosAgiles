@@ -18,12 +18,12 @@ public class PanelInicioCliente extends JPanel {
 		setLayout(null);
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 0, 0), new Color(160, 160, 160)), "Gestion Cliente", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel_1.setBounds(84, 27, 186, 206);
+		panel_1.setBounds(84, 27, 179, 187);
 		add(panel_1);
 		panel_1.setLayout(null);
 		
 		JButton btnCatalogo = new JButton("Generar Catalogo");
-		btnCatalogo.setBounds(27, 128, 131, 23);
+		btnCatalogo.setBounds(21, 121, 137, 23);
 		btnCatalogo.addActionListener(l -> {
 //			login.setMinimumSize(new Dimension(670, 340));
 //			login.setLocation(300, 70);
@@ -36,7 +36,7 @@ public class PanelInicioCliente extends JPanel {
 		panel_1.add(btnCatalogo);
 		
 		JButton btnModificarDatos = new JButton("Modificar datos");
-		btnModificarDatos.setBounds(27, 59, 131, 23);
+		btnModificarDatos.setBounds(21, 55, 137, 23);
 		btnModificarDatos.addActionListener(l -> {
 			setMinimumSize(new Dimension(900, 620));
 			setLocation(300, 70);

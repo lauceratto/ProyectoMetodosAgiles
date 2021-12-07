@@ -11,7 +11,7 @@ public class GestorCliente {
 	
 	public void crearCliente(Cliente cliente) {
 		
-		//valida que no exista un cliente en la bd con el mismo dni o correo
+		// VALIDA QUE NO EXISTA UN CLIENTE EN LA BD CON EL MISMO DNI O CORREO ELECTRONICO
 		if(daoCliente.existeCorreo(cliente.getCorreo()) == true || daoCliente.existeDNI(cliente.getDni()) == true) {
 			JOptionPane.showMessageDialog(null, "No es posible dar de alta al cliente, ya se encuentra registrado!");
 		}
@@ -19,7 +19,7 @@ public class GestorCliente {
 			daoCliente.guardarVendedor(cliente);
 		}		
 	}
-	//valida que los campos obligatorios esten completos
+	// VALIDA QUE LOS CAMPOS OBLIGATORIOS ESTEN COMPLETOS
 	public Boolean validarCampos(Cliente cliente) {
 		if(cliente.getNombre().equals("") || cliente.getApellido().equals("") || cliente.getTelefono().equals("") 
 				|| cliente.getDni().equals("")) {
@@ -29,7 +29,7 @@ public class GestorCliente {
 		return false;
 	}
 	
-	// Le manda el objeto cliente al DaoCliente para que actualiza la base de datos con los nuevos datos.
+	//  LE MANDA EL OBJETO CLIENTE AL DAOCLIENTE PARA QUE ACTUALICE LA BD CON LOS NUEVOS DATOS
 	public void modificarCliente(Cliente cliente) {
 		daoCliente.modificarCliente(cliente);
 		

@@ -17,11 +17,13 @@ import tp.gestores.GestorCliente;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class PanelModificacionCliente extends JPanel{
 	
 	/**
-	 * 
+	 * tipo de inmueble, localidad, barrio, características, y monto disponible
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel panel;
@@ -41,7 +43,7 @@ public class PanelModificacionCliente extends JPanel{
 		panel = new JPanel();
 		panel.setBounds(new Rectangle(71, 60, 750, 451));
 		panel.setBorder(new TitledBorder(null, "Modificación Cliente", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
-		panel.setBounds(43, 54, 750, 425);
+		panel.setBounds(43, 54, 750, 496);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -68,7 +70,7 @@ public class PanelModificacionCliente extends JPanel{
 		
 		JLabel lblNewLabel_3 = new JLabel("Mínimo ");
 		lblNewLabel_3.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3.setBounds(88, 354, 155, 20);
+		lblNewLabel_3.setBounds(88, 455, 155, 20);
 		panel.add(lblNewLabel_3);
 		
 		textApellido = new JTextField();
@@ -84,6 +86,7 @@ public class PanelModificacionCliente extends JPanel{
 		panel.add(textTelefono);
 		
 		textDNI = new JTextField();
+		textDNI.setEnabled(false);
 		textDNI.setColumns(10);
 		textDNI.setBounds(562, 114, 141, 20);
 		textDNI.setText("15024963");
@@ -96,29 +99,29 @@ public class PanelModificacionCliente extends JPanel{
 		
 		JLabel lblNewLabel_3_1_1 = new JLabel("Máximo ");
 		lblNewLabel_3_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_1_1.setBounds(409, 354, 155, 20);
+		lblNewLabel_3_1_1.setBounds(409, 455, 155, 20);
 		panel.add(lblNewLabel_3_1_1);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("Presupuesto de inmueble");
 		lblNewLabel_3_2.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_2.setBounds(88, 323, 199, 20);
+		lblNewLabel_3_2.setBounds(88, 424, 199, 20);
 		panel.add(lblNewLabel_3_2);
 		
 		textMinimo = new JTextField();
 		textMinimo.setColumns(10);
-		textMinimo.setBounds(241, 355, 141, 20);
+		textMinimo.setBounds(241, 456, 141, 20);
 		textMinimo.setText("300000");
 		panel.add(textMinimo);
 		
 		textMaximo = new JTextField();
 		textMaximo.setColumns(10);
-		textMaximo.setBounds(562, 355, 141, 20);
+		textMaximo.setBounds(562, 456, 141, 20);
 		textMaximo.setText("500000");
 		panel.add(textMaximo);
 		
 		JLabel lblNewLabel_3_2_1 = new JLabel("--------------------------------------------------------------------------");
 		lblNewLabel_3_2_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_2_1.setBounds(178, 292, 387, 20);
+		lblNewLabel_3_2_1.setBounds(178, 259, 387, 20);
 		panel.add(lblNewLabel_3_2_1);
 		
 		JLabel lblNewLabel_4 = new JLabel("Correo Electronico");
@@ -127,6 +130,7 @@ public class PanelModificacionCliente extends JPanel{
 		panel.add(lblNewLabel_4);
 		
 		txtMatiasloveragmailcom = new JTextField();
+		txtMatiasloveragmailcom.setEnabled(false);
 		txtMatiasloveragmailcom.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		txtMatiasloveragmailcom.setText("Matiaslovera99@gmail.com");
 		txtMatiasloveragmailcom.setColumns(10);
@@ -155,13 +159,45 @@ public class PanelModificacionCliente extends JPanel{
 		textField_2.setBounds(562, 226, 141, 20);
 		panel.add(textField_2);
 		
+		JLabel lblNewLabel_3_2_2 = new JLabel("Tipo de inmueble");
+		lblNewLabel_3_2_2.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_2_2.setBounds(88, 291, 141, 20);
+		panel.add(lblNewLabel_3_2_2);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setEditable(true);
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"               QUINTA"}));
+		comboBox.setBounds(241, 291, 141, 22);
+		panel.add(comboBox);
+		
+		JLabel lblNewLabel_3_2_2_1 = new JLabel("Localidad");
+		lblNewLabel_3_2_2_1.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_2_2_1.setBounds(409, 290, 141, 20);
+		panel.add(lblNewLabel_3_2_2_1);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setEditable(true);
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"       ARROYO LEYES"}));
+		comboBox_1.setBounds(562, 291, 141, 22);
+		panel.add(comboBox_1);
+		
+		JLabel lblNewLabel_3_2_2_2 = new JLabel("Barrio");
+		lblNewLabel_3_2_2_2.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_2_2_2.setBounds(88, 358, 141, 20);
+		panel.add(lblNewLabel_3_2_2_2);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setEditable(true);
+		comboBox_2.setBounds(241, 358, 141, 22);
+		panel.add(comboBox_2);
+		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(485, 508, 89, 23);
+		btnCancelar.setBounds(482, 567, 89, 23);
 		add(btnCancelar);
 		
 	
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(297, 508, 89, 23);
+		btnGuardar.setBounds(296, 567, 89, 23);
 		add(btnGuardar);
 		btnGuardar.addActionListener(
 			l -> {

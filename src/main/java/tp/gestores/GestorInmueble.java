@@ -11,7 +11,7 @@ import tp.dominio.Vendedor;
 public class GestorInmueble {
 	
 	private DAOInmueble daoInmueble = new DAOInmueble();
-
+	//VALIDA QUE LOS CAMPOS ESTEN COMPLETOS
 	public Boolean validarCampos(Inmueble inmueble) {
 		
 		if(inmueble.getPropietario() == null || inmueble.getProvincia().equals("Seleccionar") || inmueble.getLocalidad().equals("Seleccioanr") ||
@@ -24,7 +24,7 @@ public class GestorInmueble {
 		
 		return true;
 	}
-	
+	// SE CREA EL INMUEBLE
 	public void crearInmueble(Inmueble unInmueble) {
 		Inmueble inmueble = new Inmueble();
 		
@@ -60,17 +60,18 @@ public class GestorInmueble {
 		
 		daoInmueble.guardarInmueble(inmueble);
 	}
-	
+	// OBTIENE EL INMUEBLE POR EL ID
 	public Inmueble getById(Integer idInmueble) {
 		return daoInmueble.getById(idInmueble);
 	}
-	
+	//  MODIFICA LOS DATOS DEL INMUEBLE Y SE ACTUALIZA EN LA BASE DE DATOS
 	public void modificarInmueble(Integer idInmueble) {
 		Inmueble inmueble = this.getById(idInmueble);
 
 		daoInmueble.modificarInmueble(inmueble);
 	}
-
+	
+	//SE BUSCA EL INMUEBLE SEGUN LOS DATOS PASADOS POR PARAMETRO
 	public List<Inmueble> buscarInmueble(String barrio, String precioMax, String precioMin, Integer dormitorios,
 			String provincia, String localidad, String tipoInmueble) {
 		
@@ -80,11 +81,12 @@ public class GestorInmueble {
 	public void ordenarInmuebles(List<Inmueble> inmuebles) {
 	
 	}
-	
+	// SE ELIMINA EL INMUEBLE DE LA BASE DE DATOS
 	public void eliminarInmueble(Inmueble inmueble){
 		daoInmueble.eliminarInmueble(inmueble);
 	}
 	
+	//	VERIFICA LONGITUD DE LOS CAMPOS
 	public Boolean verificarLongitudCampos(Inmueble inmueble) {
 		
 		if(inmueble.getNumero().length() > 15 || inmueble.getPiso().length() > 15 ) {

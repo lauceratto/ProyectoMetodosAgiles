@@ -34,7 +34,7 @@ public class PanelDocumentoReserva extends JFrame {
 	
 	JPanel panel = new JPanel();
 	panel.setBorder(new TitledBorder(null, "Documento de reserva de inmueble", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-	panel.setBounds(45, 74, 859, 599);
+	panel.setBounds(45, 74, 794, 502);
 	getContentPane().add(panel);
 	panel.setLayout(null);
 	
@@ -113,7 +113,7 @@ public class PanelDocumentoReserva extends JFrame {
 	lblNumerocalle.setBounds(508, 101, 90, 25);
 	panel.add(lblNumerocalle);
 	
-	JLabel lblBarrioinm = new JLabel("Candiotti");
+	JLabel lblBarrioinm = new JLabel("Candioti");
 	lblBarrioinm.setFont(new Font("Arial", Font.PLAIN, 14));
 	lblBarrioinm.setBounds(508, 137, 90, 25);
 	panel.add(lblBarrioinm);
@@ -188,13 +188,13 @@ public class PanelDocumentoReserva extends JFrame {
 	lblPrecio_1_1.setBounds(225, 388, 413, 25);
 	panel.add(lblPrecio_1_1);
 	
-	JLabel lblTiempoDeVigencia = new JLabel("Tiempo de vigencia:");
+	JLabel lblTiempoDeVigencia = new JLabel("Tiempo de vigencia (días):");
 	lblTiempoDeVigencia.setFont(new Font("Arial", Font.PLAIN, 14));
-	lblTiempoDeVigencia.setBounds(81, 447, 135, 25);
+	lblTiempoDeVigencia.setBounds(81, 447, 182, 25);
 	panel.add(lblTiempoDeVigencia);
 	
 //	JLabel lblValorsea= new JLabel(reserva.getImporte().toString());
-	JLabel lblValorsea= new JLabel("30000");
+	JLabel lblValorsea= new JLabel("180000.0");
 	lblValorsea.setFont(new Font("Arial", Font.PLAIN, 14));
 	lblValorsea.setBounds(635, 450, 115, 20);
 	panel.add(lblValorsea);
@@ -204,18 +204,18 @@ public class PanelDocumentoReserva extends JFrame {
 	lblImporteDeReserva.setBounds(475, 447, 135, 25);
 	panel.add(lblImporteDeReserva);
 	
-	JButton btnDescargar = new JButton("Descargar");
-	btnDescargar.setBounds(269, 514, 89, 23);
-	panel.add(btnDescargar);
-	
-	JButton btnCancelar = new JButton("Cancelar");
-	btnCancelar.setBounds(492, 514, 89, 23);
-	panel.add(btnCancelar);
-	
 //	JLabel comboBox = new JLabel(reserva.getFechaVigencia().toString());
 	JLabel comboBox = new JLabel("5");
-	comboBox.setBounds(225, 449, 115, 22);
+	comboBox.setBounds(269, 449, 115, 22);
 	panel.add(comboBox);
+	
+	JButton btnDescargar = new JButton("Descargar");
+	btnDescargar.setBounds(333, 603, 103, 23);
+	getContentPane().add(btnDescargar);
+	
+	JButton btnCancelar = new JButton("Cancelar");
+	btnCancelar.setBounds(505, 603, 89, 23);
+	getContentPane().add(btnCancelar);
 	
 	
 	btnCancelar.addActionListener(l -> {	

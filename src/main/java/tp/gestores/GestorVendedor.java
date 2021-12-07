@@ -9,7 +9,7 @@ public class GestorVendedor {
 
 	private DAOVendedor daoVendedor = new DAOVendedor();
 	
-	//Crea al vendedor y lo manda a guardar en la base de datos
+	//CREA EL VENDEDOR Y SE GUARDA EN LA BASE DE DATOS, VERIFICA QUE NO EXISTA PREVIAMENTE UN VENDEDOR CON EL MISMO DNI
 	public void crearVendedor(Vendedor vendedor) {
 		
 		if(daoVendedor.existeDNI(vendedor.getDni()) == true) {
@@ -33,7 +33,7 @@ public class GestorVendedor {
 		}
 	}
 	
-	//Valida que los campos obligatorios esten completos
+	//VALIDA QUE LOS CAMPOS NO ESTEN NULOS
 	public Boolean validarCampos(Vendedor vendedor) {
 		if(vendedor.getNombre().equals("") || vendedor.getApellido().equals("") || vendedor.getCalle().equals("") 
 				|| vendedor.getTelefono().equals("")|| vendedor.getConfContra().equals("") || vendedor.getContrasenia().equals("") 
@@ -44,7 +44,7 @@ public class GestorVendedor {
 		return false;
 	}
 	
-	//Le manda el objeto vendedor al DaoVendedor para que actualice la base de datos con los nuevos datos.
+	//SE MANDA A ACTUALIZAR LOS DATOS DEL VENDEDOR A LA BASE DE DATOS.
 	public void actualizarEstacion(Vendedor vendedor) {
 		daoVendedor.actualizarVendedor(vendedor);
 		

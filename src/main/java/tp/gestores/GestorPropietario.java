@@ -7,7 +7,7 @@ import tp.dominio.Propietario;
 
 public class GestorPropietario {
 private DAOPropietario daoPropietario = new DAOPropietario();
-	
+	// CREA EL PROPIETARIO Y LO GUARDA EN LA BASE DE DATOS
 	public void altaPropietario(Propietario propietario) {
 		
 		if (daoPropietario.verificacionUnico(propietario.getNombre()) == true) {
@@ -32,7 +32,7 @@ private DAOPropietario daoPropietario = new DAOPropietario();
 		}
 
 	}
-	
+	// VERIFICA QUE LOS CAMPOS NO SEAN NULOS
 	public boolean VerificacionCampos(Propietario prop) {
 		
 		if(prop.getNombre().equals("") || prop.getApellido().equals("") || prop.getEmail().equals("") ||

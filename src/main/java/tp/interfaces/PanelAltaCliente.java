@@ -15,6 +15,8 @@ import java.awt.Rectangle;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 
 public class PanelAltaCliente extends JPanel{
@@ -45,7 +47,7 @@ public class PanelAltaCliente extends JPanel{
 		panel = new JPanel();
 		panel.setBounds(new Rectangle(71, 60, 750, 451));
 		panel.setBorder(new TitledBorder(null, "Alta Cliente", TitledBorder.LEADING, TitledBorder.TOP, null, Color.BLACK));
-		panel.setBounds(62, 49, 750, 403);
+		panel.setBounds(62, 49, 750, 523);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -66,7 +68,7 @@ public class PanelAltaCliente extends JPanel{
 		
 		JLabel lblNewLabel_3 = new JLabel("Mínimo: (*)");
 		lblNewLabel_3.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3.setBounds(88, 339, 155, 20);
+		lblNewLabel_3.setBounds(88, 461, 155, 20);
 		panel.add(lblNewLabel_3);
 		
 		textApellido = new JTextField();
@@ -92,27 +94,27 @@ public class PanelAltaCliente extends JPanel{
 		
 		JLabel lblNewLabel_3_1_1 = new JLabel("Máximo (*)");
 		lblNewLabel_3_1_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_1_1.setBounds(409, 339, 155, 20);
+		lblNewLabel_3_1_1.setBounds(409, 461, 155, 20);
 		panel.add(lblNewLabel_3_1_1);
 		
 		JLabel lblNewLabel_3_2 = new JLabel("Presupuesto de inmueble");
 		lblNewLabel_3_2.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_2.setBounds(88, 308, 199, 20);
+		lblNewLabel_3_2.setBounds(88, 430, 199, 20);
 		panel.add(lblNewLabel_3_2);
 		
 		textMinimo = new JTextField();
 		textMinimo.setColumns(10);
-		textMinimo.setBounds(241, 340, 141, 20);
+		textMinimo.setBounds(241, 462, 141, 20);
 		panel.add(textMinimo);
 		
 		textMaximo = new JTextField();
 		textMaximo.setColumns(10);
-		textMaximo.setBounds(562, 340, 141, 20);
+		textMaximo.setBounds(562, 462, 141, 20);
 		panel.add(textMaximo);
 		
 		JLabel lblNewLabel_3_2_1 = new JLabel("----------------------------------------------------------------------------");
 		lblNewLabel_3_2_1.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblNewLabel_3_2_1.setBounds(177, 277, 387, 20);
+		lblNewLabel_3_2_1.setBounds(176, 264, 387, 20);
 		panel.add(lblNewLabel_3_2_1);
 		
 		textField = new JTextField();
@@ -150,13 +152,46 @@ public class PanelAltaCliente extends JPanel{
 		textContra1.setBounds(562, 227, 141, 20);
 		panel.add(textContra1);
 		
+		JLabel lblNewLabel_3_2_2 = new JLabel("Tipo de inmueble");
+		lblNewLabel_3_2_2.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_2_2.setBounds(88, 308, 141, 20);
+		panel.add(lblNewLabel_3_2_2);
+		
+		JLabel lblNewLabel_3_2_2_2 = new JLabel("Barrio");
+		lblNewLabel_3_2_2_2.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_2_2_2.setBounds(88, 375, 141, 20);
+		panel.add(lblNewLabel_3_2_2_2);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setModel(new DefaultComboBoxModel(new String[] {"Seleccionar"}));
+		comboBox_2.setEditable(true);
+		comboBox_2.setBounds(241, 375, 141, 22);
+		panel.add(comboBox_2);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seleccionar"}));
+		comboBox.setEditable(true);
+		comboBox.setBounds(241, 308, 141, 22);
+		panel.add(comboBox);
+		
+		JLabel lblNewLabel_3_2_2_1 = new JLabel("Localidad");
+		lblNewLabel_3_2_2_1.setFont(new Font("Arial", Font.PLAIN, 14));
+		lblNewLabel_3_2_2_1.setBounds(409, 307, 141, 20);
+		panel.add(lblNewLabel_3_2_2_1);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"Seleccionar"}));
+		comboBox_1.setEditable(true);
+		comboBox_1.setBounds(562, 308, 141, 22);
+		panel.add(comboBox_1);
+		
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(484, 498, 89, 23);
+		btnCancelar.setBounds(475, 591, 89, 23);
 		add(btnCancelar);
 		
 		
 		JButton btnGuardar = new JButton("Guardar");
-		btnGuardar.setBounds(296, 498, 89, 23);
+		btnGuardar.setBounds(304, 591, 89, 23);
 		add(btnGuardar);
 		btnGuardar.addActionListener(
 			l -> {

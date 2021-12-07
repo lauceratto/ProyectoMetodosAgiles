@@ -35,12 +35,12 @@ public class PanelCatalogoInmuebles extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Catálogo de Imuebles", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(47, 31, 710, 380);
+		panel.setBounds(47, 31, 710, 305);
 		add(panel);
 		panel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(22, 33, 662, 315);
+		scrollPane.setBounds(22, 33, 662, 227);
 		panel.add(scrollPane);
 		
 		modeloTabla = new InmuebleTableModel(); 
@@ -54,7 +54,7 @@ public class PanelCatalogoInmuebles extends JPanel {
 		
 		btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnCancelar.setBounds(690, 421, 85, 21);
+		btnCancelar.setBounds(444, 357, 85, 21);
 		/*btnCancelar.addActionListener(l -> {	
 			login.setMinimumSize(new Dimension(670, 340));
 			login.setLocation(300, 70);
@@ -69,7 +69,7 @@ public class PanelCatalogoInmuebles extends JPanel {
 		
 		btnComprar = new JButton("Comprar");
 		btnComprar.setFont(new Font("Arial", Font.BOLD, 12));
-		btnComprar.setBounds(595, 421, 85, 21);
+		btnComprar.setBounds(315, 357, 85, 21);
 		btnComprar.addActionListener(l -> {
 //			login.setMinimumSize(new Dimension(670, 340));
 //			login.setLocation(300, 70);
@@ -80,6 +80,18 @@ public class PanelCatalogoInmuebles extends JPanel {
 			login.repaint();
 		});
 		add(btnComprar);
+		
+		JButton btnReservar = new JButton("Reservar");
+		btnReservar.setFont(new Font("Arial", Font.BOLD, 12));
+		btnReservar.setBounds(189, 356, 96, 21);
+		btnReservar.addActionListener(l -> {
+			login.setTitle("Reserva de Inmueble");
+			login.setContentPane(new PanelGenerarReserva(login));
+			login.pack();
+			login.revalidate();
+			login.repaint();
+		});
+		add(btnReservar);
 		
 	}
 	

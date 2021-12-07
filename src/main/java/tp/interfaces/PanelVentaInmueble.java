@@ -113,17 +113,17 @@ public class PanelVentaInmueble extends JPanel {
 		
 		JLabel lblBarrio = new JLabel("Barrio:   Centro    ");
 		lblBarrio.setHorizontalAlignment(SwingConstants.CENTER);
-		lblBarrio.setBounds(20, 71, 140, 14);
+		lblBarrio.setBounds(20, 71, 122, 14);
 		panelInmueble.add(lblBarrio);
 		
 		JLabel lblTipo = new JLabel("Tipo de inmueble:       Casa");
 		lblTipo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblTipo.setBounds(170, 71, 140, 14);
+		lblTipo.setBounds(170, 71, 151, 14);
 		panelInmueble.add(lblTipo);
 		
-		JLabel lblPrecio = new JLabel("Precio:       $5.000.000");
+		JLabel lblPrecio = new JLabel("Precio:       $50.000.000");
 		lblPrecio.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPrecio.setBounds(350, 71, 115, 14);
+		lblPrecio.setBounds(350, 71, 144, 14);
 		panelInmueble.add(lblPrecio);
 		
 		JLabel lblOrientacion = new JLabel("Orientaci\u00F3n:       Norte");
@@ -133,17 +133,17 @@ public class PanelVentaInmueble extends JPanel {
 		
 		JLabel lblFrente = new JLabel("Longitud del frente:       30mts");
 		lblFrente.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFrente.setBounds(77, 113, 162, 14);
+		lblFrente.setBounds(77, 113, 182, 14);
 		panelInmueble.add(lblFrente);
 		
 		JLabel lblFondo = new JLabel("Longitud de fondo:       30mts");
 		lblFondo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblFondo.setBounds(269, 113, 162, 14);
+		lblFondo.setBounds(269, 113, 186, 14);
 		panelInmueble.add(lblFondo);
 		
 		JLabel lblSuperficie = new JLabel("Superficie:       900m2");
 		lblSuperficie.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSuperficie.setBounds(449, 113, 140, 14);
+		lblSuperficie.setBounds(465, 113, 140, 14);
 		panelInmueble.add(lblSuperficie);
 		
 		JLabel lblAntiguedad = new JLabel("Antig\u00FCedad:       1 a\u00F1o");
@@ -191,7 +191,7 @@ public class PanelVentaInmueble extends JPanel {
 		JCheckBox checkAgua = new JCheckBox("Agua corriente");
 		checkAgua.setHorizontalAlignment(SwingConstants.CENTER);
 		checkAgua.setBackground(Color.WHITE);
-		checkAgua.setBounds(59, 218, 105, 23);
+		checkAgua.setBounds(46, 218, 134, 23);
 		panelInmueble.add(checkAgua);
 		
 		JCheckBox checkPatio = new JCheckBox("Patio");

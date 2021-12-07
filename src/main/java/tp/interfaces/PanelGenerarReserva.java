@@ -25,14 +25,14 @@ public class PanelGenerarReserva extends JPanel {
 	private GestorReserva gestorReserva = new GestorReserva();
 	private JTextField txtValorsea;
 	
-	public PanelGenerarReserva(Inmueble inmueble, Cliente cliente) {
+	public PanelGenerarReserva(LoginCliente login) {
 		
 	
 		
 		setLayout(null);
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Generar reserva", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(50, 21, 1000, 800);
+		panel.setBounds(50, 21, 773, 510);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -111,7 +111,7 @@ public class PanelGenerarReserva extends JPanel {
 		lblNumerocalle.setBounds(508, 101, 90, 25);
 		panel.add(lblNumerocalle);
 		
-		JLabel lblBarrioinm = new JLabel("Candiotti");
+		JLabel lblBarrioinm = new JLabel("Candioti");
 		lblBarrioinm.setFont(new Font("Arial", Font.PLAIN, 14));
 		lblBarrioinm.setBounds(508, 137, 90, 25);
 		panel.add(lblBarrioinm);
@@ -186,9 +186,9 @@ public class PanelGenerarReserva extends JPanel {
 		lblPrecio_1_1.setBounds(225, 388, 413, 25);
 		panel.add(lblPrecio_1_1);
 		
-		JLabel lblTiempoDeVigencia = new JLabel("Tiempo de vigencia:");
+		JLabel lblTiempoDeVigencia = new JLabel("Tiempo de vigencia (días):");
 		lblTiempoDeVigencia.setFont(new Font("Arial", Font.PLAIN, 14));
-		lblTiempoDeVigencia.setBounds(81, 447, 135, 25);
+		lblTiempoDeVigencia.setBounds(66, 447, 167, 25);
 		panel.add(lblTiempoDeVigencia);
 		
 		txtValorsea = new JTextField();
@@ -204,14 +204,6 @@ public class PanelGenerarReserva extends JPanel {
 		lblImporteDeReserva.setBounds(475, 447, 135, 25);
 		panel.add(lblImporteDeReserva);
 		
-		JButton btnConfirmar = new JButton("Confirmar");
-		btnConfirmar.setBounds(269, 514, 89, 23);
-		panel.add(btnConfirmar);
-		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(492, 514, 89, 23);
-		panel.add(btnCancelar);
-		
 		JComboBox comboBox = new JComboBox();
 		comboBox.addItem("Seleccionar");
 		comboBox.addItem("5");
@@ -219,34 +211,30 @@ public class PanelGenerarReserva extends JPanel {
 		comboBox.setBounds(243, 449, 115, 22);
 		panel.add(comboBox);
 		
-		/*
-		btnCancelar.addActionListener(l -> {	
-		panelConsultaInmueble.setMinimumSize(new Dimension(670, 340));
-		panelConsultaInmueble.setLocation(300, 70);
-		panelConsultaInmueble.setTitle("Consulta inmueble");
-		panelConsultaInmueble.setContentPane(new PanelConsultaInmueble());
-		panelConsultaInmueble.pack();
-		panelConsultaInmueble.revalidate();
-		panelConsultaInmueble.repaint();
+		JButton btnConfirmar = new JButton("Reservar");
+		btnConfirmar.setBounds(316, 565, 89, 23);
+		add(btnConfirmar);
 		
-		});
-		*/
-		comboBox.addActionListener(l -> {
-			Double valor = gestorReserva.importeSegunTiempoVigencia(comboBox.getSelectedIndex(), inmueble.getPrecio());
-			txtValorsea.setText(valor.toString());
-		});
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(468, 565, 89, 23);
+		add(btnCancelar);
 		
 		btnConfirmar.addActionListener(e -> {
 			//verifico que se seleccione una fecha de vigencia en la reserva
 			if(gestorReserva.validarCampos(comboBox.getSelectedIndex())) {
 				
-				Reserva reserva = new Reserva(inmueble, cliente, comboBox.getSelectedIndex(), Float.parseFloat(txtValorsea.getText())); 
-				gestorReserva.crearReserva(reserva);
+//				Reserva reserva = new Reserva(inmueble, cliente, comboBox.getSelectedIndex(), Float.parseFloat(txtValorsea.getText())); 
+//				gestorReserva.crearReserva(reserva);
 				String correo = "Se le ha enviado un email a su correo a lisandroPerez@gmail.com";
 				JOptionPane.showMessageDialog(null, correo);
-				PanelDocumentoReserva nuevo = new PanelDocumentoReserva(reserva);
+				PanelDocumentoReserva nuevo = new PanelDocumentoReserva(null);
 				nuevo.setVisible(true);
 			}
+		});
+		
+		comboBox.addActionListener(l -> {
+			Double valor = gestorReserva.importeSegunTiempoVigencia(comboBox.getSelectedIndex(), 3000000);
+			txtValorsea.setText(valor.toString());
 		});
 		
 	}
