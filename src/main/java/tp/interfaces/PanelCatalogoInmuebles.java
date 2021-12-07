@@ -29,7 +29,7 @@ public class PanelCatalogoInmuebles extends JPanel {
 	
 	String[] columnNames = {"Precio"};
 	
-	public PanelCatalogoInmuebles(Login login) {
+	public PanelCatalogoInmuebles(LoginCliente login) {
 
 		setLayout(null);
 		
@@ -70,6 +70,15 @@ public class PanelCatalogoInmuebles extends JPanel {
 		btnComprar = new JButton("Comprar");
 		btnComprar.setFont(new Font("Arial", Font.BOLD, 12));
 		btnComprar.setBounds(595, 421, 85, 21);
+		btnComprar.addActionListener(l -> {
+//			login.setMinimumSize(new Dimension(670, 340));
+//			login.setLocation(300, 70);
+			login.setTitle("Comprobante de compra");
+			login.setContentPane(new PanelVentaInmueble(login));
+			login.pack();
+			login.revalidate();
+			login.repaint();
+		});
 		add(btnComprar);
 		
 	}

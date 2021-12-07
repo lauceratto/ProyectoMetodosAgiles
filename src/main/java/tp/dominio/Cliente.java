@@ -28,12 +28,15 @@ public class Cliente implements Serializable {
 		cliente.telefono = telefono;
 	}
 */	
-	public Cliente(String nombre, String apellido, String telefono, Integer dni, Double montoMinimo, Double montoMaximo) {
+	public Cliente(String nombre, String apellido, String telefono, Integer dni, Double montoMinimo, Double montoMaximo, String correo, String contra, String confContra) {
 		Cliente cliente = new Cliente();
 		cliente.nombre = nombre;
 		cliente.apellido = apellido;
 		cliente.dni = dni;
 		cliente.telefono = telefono;
+		cliente.confContra = confContra;
+		cliente.contra = contra;
+		cliente.correo = correo;
 		cliente.montoMinimo = montoMinimo;
 		cliente.montoMaximo = montoMaximo;
 	}
@@ -49,11 +52,39 @@ public class Cliente implements Serializable {
 	private String nombre;
 	private String apellido;
 	private String telefono;
-
-
+	private String correo;
 	private Inmueble inmueble;
-
+	private String contra;
 	private Double montoMinimo;
+	private String confContra;
+	public String getCorreo() {
+		return correo;
+	}
+
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+
+	public String getContra() {
+		return contra;
+	}
+
+
+	public void setContra(String contra) {
+		this.contra = contra;
+	}
+
+
+	public String getConfContra() {
+		return confContra;
+	}
+
+
+	public void setConfContra(String confContra) {
+		this.confContra = confContra;
+	}
 
 	private Double montoMaximo;
 

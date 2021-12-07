@@ -35,7 +35,7 @@ public class PanelConsultaInmueble extends JFrame {
 	private GestorInmueble gestorInmueble = new GestorInmueble();
 	private List<Inmueble> inmuebles = new ArrayList<Inmueble>();
 	
-	public PanelConsultaInmueble() {
+	public PanelConsultaInmueble(Login login) {
 		setMinimumSize(new Dimension(720, 400));
 		setLocation(300, 70);
 		getContentPane().setLayout(null);

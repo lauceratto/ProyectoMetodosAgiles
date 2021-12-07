@@ -25,4 +25,9 @@ public class DAOCliente {
 		
 	}
 
+	public boolean existeCorreo(String correo) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

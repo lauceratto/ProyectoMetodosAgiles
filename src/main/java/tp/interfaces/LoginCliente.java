@@ -3,33 +3,27 @@ package tp.interfaces;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 
-import tp.dominio.Cliente;
-import tp.dominio.Inmueble;
-
-import javax.swing.JButton;
-
-
-public class Login extends JFrame {
+public class LoginCliente extends JFrame {
 
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField txtCorreoElectronico;
 	private JTextField textField_2;
 
-	public Login() {
+	public LoginCliente() {
 		
 		armarLogin();
 	}
 	public void armarLogin() {
 		setMinimumSize(new Dimension(300, 350));
 		setLocation(600, 200);
-		setTitle("Login Vendedor");
+		setTitle("Login Cliente");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(PanelInicioVendedor.class.getResource("/tp/icons/Icon.png")));
 	
 		getContentPane().setLayout(null);
@@ -54,10 +48,10 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Ingresar");
 		btnNewButton.setBounds(92, 172, 89, 23);
 		btnNewButton.addActionListener(e -> {
-			this.setMinimumSize(new Dimension(670, 420));
+			this.setMinimumSize(new Dimension(360, 340));
 			this.setLocation(300, 70);
-			this.setTitle("Inicio vendedor");
-			this.setContentPane(new PanelInicioVendedor(this));
+			this.setTitle("Inicio Cliente");
+			this.setContentPane(new PanelInicioCliente(this));
 			this.pack();
 			this.revalidate();
 			this.repaint();
@@ -65,13 +59,13 @@ public class Login extends JFrame {
 		});
 		getContentPane().add(btnNewButton);
 		
-		JButton btnCancelar = new JButton("Registrar vendedor");
+		JButton btnCancelar = new JButton("Registrarse");
 		btnCancelar.setBounds(62, 243, 148, 23);
 		btnCancelar.addActionListener(l -> {
 			this.setMinimumSize(new Dimension(900, 620));
-			this.setLocation(300, 70);
-			this.setTitle("Alta vendedor");
-			this.setContentPane(new PanelAltaVendedor(this));
+			setLocation(300, 70);
+			this.setTitle("Alta cliente");
+			this.setContentPane(new PanelAltaCliente(this));
 			this.pack();
 			this.revalidate();
 			this.repaint();
@@ -79,6 +73,6 @@ public class Login extends JFrame {
 		});
 		getContentPane().add(btnCancelar);
 		
-		
 	}
+
 }

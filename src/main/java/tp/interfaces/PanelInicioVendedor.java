@@ -93,7 +93,7 @@ public class PanelInicioVendedor extends JPanel {
 		JPanel panel_1_1 = new JPanel();
 		panel_1_1.setLayout(null);
 		panel_1_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(0, 0, 255), new Color(160, 160, 160)), "Gestion Inmueble", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1_1.setBounds(10, 164, 345, 88);
+		panel_1_1.setBounds(10, 150, 630, 88);
 		add(panel_1_1);
 		
 		JButton btnAltaInmueble = new JButton("Alta Inmueble");
@@ -111,7 +111,7 @@ public class PanelInicioVendedor extends JPanel {
 		panel_1_1.add(btnAltaInmueble);
 		
 		JButton btnModificarInmueble = new JButton("Lista Inmuebles");
-		btnModificarInmueble.setBounds(191, 39, 131, 23);
+		btnModificarInmueble.setBounds(239, 39, 131, 23);
 		btnModificarInmueble.addActionListener(l -> {
 			login.setMinimumSize(new Dimension(600, 420));
 			login.setLocation(300, 70);
@@ -124,14 +124,26 @@ public class PanelInicioVendedor extends JPanel {
 		});
 		panel_1_1.add(btnModificarInmueble);
 		
+		JButton btnConsulta = new JButton("Consulta Inmueble");
+		btnConsulta.setBounds(446, 39, 143, 23);
+		btnConsulta.addActionListener(l -> {
+			login.setTitle("Consulta inmuebles");
+			login.setContentPane(new PanelConsultaInmueble(login));
+			login.pack();
+			login.revalidate();
+			login.repaint();
+			
+		});
+		panel_1_1.add(btnConsulta);
+		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
 		panel_2.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(0, 128, 0), new Color(160, 160, 160)), "Gestion Cliente", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_2.setBounds(384, 164, 256, 88);
+		panel_2.setBounds(10, 271, 630, 88);
 		add(panel_2);
 		
 		JButton btnListaClientes = new JButton("Lista Clientes");
-		btnListaClientes.setBounds(70, 38, 125, 23);
+		btnListaClientes.setBounds(240, 33, 125, 23);
 		btnListaClientes.addActionListener(l -> {
 			login.setMinimumSize(new Dimension(800, 600));
 			login.setLocation(300, 70);

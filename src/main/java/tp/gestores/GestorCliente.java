@@ -11,12 +11,9 @@ public class GestorCliente {
 	
 	public void crearCliente(Cliente cliente) {
 		
-		//valida que no exista un cliente en la bd con el mismo dni y telefono
-		if(daoCliente.existeDNI(cliente.getDni()) == true) {
-			JOptionPane.showMessageDialog(null, "El DNI de la competencia ya existe, elija otro");
-		}
-		else if(daoCliente.existeTelefono(cliente.getTelefono()) == true) {
-			JOptionPane.showMessageDialog(null, "El telefono de la competencia ya existe, elija otro");
+		//valida que no exista un cliente en la bd con el mismo dni o correo
+		if(daoCliente.existeCorreo(cliente.getCorreo()) == true || daoCliente.existeDNI(cliente.getDni()) == true) {
+			JOptionPane.showMessageDialog(null, "No es posible dar de alta al cliente, ya se encuentra registrado!");
 		}
 		else {
 			daoCliente.guardarVendedor(cliente);
