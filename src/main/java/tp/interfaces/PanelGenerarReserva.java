@@ -207,6 +207,7 @@ public class PanelGenerarReserva extends JPanel {
 		JComboBox comboBox = new JComboBox();
 		comboBox.addItem("Seleccionar");
 		comboBox.addItem("5");
+		comboBox.addItem("7");
 		comboBox.addItem("10");
 		comboBox.setBounds(243, 449, 115, 22);
 		panel.add(comboBox);
@@ -233,7 +234,8 @@ public class PanelGenerarReserva extends JPanel {
 		});
 		
 		comboBox.addActionListener(l -> {
-			Double valor = gestorReserva.importeSegunTiempoVigencia(comboBox.getSelectedIndex(), 3000000);
+			//System.out.println(comboBox.getSelectedIndex());
+			Double valor = gestorReserva.importeSegunTiempoVigencia(comboBox.getSelectedIndex(), 3000000.0);
 			txtValorsea.setText(valor.toString());
 		});
 		

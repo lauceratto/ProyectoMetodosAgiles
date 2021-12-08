@@ -24,18 +24,20 @@ public class GestorReserva {
 	}
 	
 	//	CALCULA EL VALOR DE LA RESERVA SEGUN LOS DIAS DE VIGENCIA QUE ELIGIO EL CLIENTE 
-	public double importeSegunTiempoVigencia(Integer dia, double valorInmueble) {
-		//index = 0 ->ELIGE EL VALOR 5
-		if(dia == 0) {
-			return valorInmueble*3/100;
+	public double importeSegunTiempoVigencia(Integer index, double valorInmueble) {
+		//index = 1 ->ELIGE EL VALOR 5
+		if(index == 1) {
+			return (valorInmueble*3)/100;
 		}
-		//index = 1 -> ELIGE EL VALOR 10
-		else if(dia == 1) {
-			return valorInmueble*6/100;
+		//index = 2 -> ELIGE EL VALOR 7
+		if(index == 2) {
+			return (valorInmueble*5)/100;
 		}
-		//NO ELIGE VALOR 
-		else
-			return 0;
+		//index = 3 -> ELIGE EL VALOR 10
+		if(index == 3) {
+			return (valorInmueble*8)/100;
+		}
+		return 0.0;
 		
 	}
 }

@@ -4,9 +4,6 @@
              version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 
   <persistence-unit name="Persistencia">
-
-  <!-- 
-
   <!-- 
   	<class>tp.dominio.Propietario</class>
  	<class>tp.dominio.Cliente</class>

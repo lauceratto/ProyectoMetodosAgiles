@@ -45,7 +45,7 @@ public class GestorVendedor {
 	}
 	
 	//SE MANDA A ACTUALIZAR LOS DATOS DEL VENDEDOR A LA BASE DE DATOS.
-	public void actualizarEstacion(Vendedor vendedor) {
+	public void actualizarDatos(Vendedor vendedor) {
 		daoVendedor.actualizarVendedor(vendedor);
 		
 	}
