@@ -1,5 +1,7 @@
 package tp.gestores;
 
+import java.time.LocalDate;
+
 import tp.dao.DAOReserva;
 import tp.dominio.Reserva;
 
@@ -13,6 +15,7 @@ public class GestorReserva {
 		else
 			return true;
 	}
+	
 	//	SE CREA LA RESERVA
 	public void crearReserva(Reserva reserva) {
 		Reserva reserv = new Reserva();
@@ -20,6 +23,7 @@ public class GestorReserva {
 		reserv.setInmueble(reserva.getInmueble());
 		reserv.setFechaVigencia(reserva.getFechaVigencia());
 		reserv.setImporte(reserva.getImporte());
+		reserv.setFechaInicio(LocalDate.now());
 		daoReserva.guardarReserva(reserv);
 	}
 	

@@ -74,6 +74,16 @@ public class Inmueble implements Serializable{
 	private LocalDate fechaDeCarga;
 	
 	private EstadoInmueble estado;
+	
+	private Integer banio;
+
+	public Integer getBanio() {
+		return banio;
+	}
+
+	public void setBanio(Integer banio) {
+		this.banio = banio;
+	}
 
 	public Inmueble(Propietario propietario, String provincia, String localidad, String calle, String numero,
 			String piso, String barrio, String tipo, Double precio, String orientacion, Double longFrente,
@@ -361,5 +371,12 @@ public class Inmueble implements Serializable{
 		return serialVersionUID;
 	}
 	
-	
+	public Boolean cambiarEstadoInmueble() {
+		if(this.estado != EstadoInmueble.VENDIDO) {
+			this.estado = EstadoInmueble.VENDIDO;
+			return true;
+		}
+		return false;
+		
+	}
 }
