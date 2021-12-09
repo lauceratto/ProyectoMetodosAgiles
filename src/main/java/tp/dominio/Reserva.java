@@ -1,6 +1,7 @@
 package tp.dominio;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +20,25 @@ public class Reserva implements Serializable{
 	
 	private Integer fechaVigencia;
 	
+	private LocalDate fechaInicio;
 	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public LocalDate getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public void setFechaInicio(LocalDate fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
 	public Reserva(Inmueble inmueble2, Cliente cliente2, int selectedIndex, float parseFloat) {
 		super();
 		this.inmueble = inmueble2;

@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 
 import tp.dao.DAOInmueble;
 import tp.dominio.Inmueble;
-import tp.dominio.Vendedor;
 
 public class GestorInmueble {
 	
@@ -96,4 +95,16 @@ public class GestorInmueble {
 		return true;
 		
 	}
+	
+	public Boolean verificarValoresNegativos(Inmueble inmueble) {
+		
+		if(inmueble.getAntiguedad()>=0 && inmueble.getDormitorios() >= 0 && 
+		   inmueble.getLongFondo()>0 && inmueble.getLongFrente()>0 && 
+		   inmueble.getPrecio()>0 && inmueble.getSuperficie()>0  && 
+		   inmueble.getBanio()>=0) { 
+			return true;
+		}
+		return false;
+	}
+
 }
